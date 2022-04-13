@@ -1,8 +1,8 @@
-import '../styles/globals.css'
+import '../styles/master.scss'
 import type { AppProps } from 'next/app'
 
-function MyApp({ Component, pageProps }: AppProps) {
+function AstroApp({ Component, pageProps }: AppProps) {
   return <Component {...pageProps} />
 }
 
-export default MyApp
+export default AstroApp
