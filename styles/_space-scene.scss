@@ -1,0 +1,18 @@
+// Homepage space scene
+#space-scene {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: radial-gradient(
+    circle,
+    rgba(20, 22, 30, 1) 70%,
+    rgba(18, 18, 18, 1) 100%
+  );
+}
+
+// Helmet container
+.helmet-iframe {
+  height: 720px;
+}

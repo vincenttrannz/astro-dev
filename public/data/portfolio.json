@@ -1,0 +1,131 @@
+[
+  { 
+    "id": "1",
+    "item_src": "/images/portfolio/image1.jpg",
+    "item_thumb": "/images/portfolio/image1-thumb.jpg",
+    "item_name": "Bridge Pagoda (Chùa Cầu)",
+    "item_location": "Hoi An, Vietnam",
+    "item_desc": "",
+    "filter": "landscape"
+  },
+  {
+    "id": "2",
+    "item_src": "/images/portfolio/image2.jpg",
+    "item_thumb": "/images/portfolio/image2-thumb.jpg",
+    "item_name": "Hoi An Lantern shop (Lồng đèn Hội An)",
+    "item_location": "Hoi An, Vietnam",
+    "filter": "landscape"
+  },
+  { 
+    "id": "3",
+    "item_src": "/images/portfolio/image3.jpg",
+    "item_thumb": "/images/portfolio/image3-thumb.jpg",
+    "item_name": "Calligraphy master (Ông đồ)",
+    "item_location": "Hue, Vietnam",
+    "filter": "portrait"
+  },
+  { 
+    "id": "4",
+    "item_src": "/images/portfolio/image4.jpg",
+    "item_thumb": "/images/portfolio/image4-thumb.jpg",
+    "item_name": "Golden Bridge (Cầu Vàng)",
+    "item_location": "Bana Hill, Da Nang, Vietnam",
+    "filter": "landscape"
+  },
+  { 
+    "id": "5",
+    "item_src": "/images/portfolio/image5.jpg",
+    "item_thumb": "/images/portfolio/image5-thumb.jpg",
+    "item_name": "Enkianthus Quinqueflorus (Hoa Đào Chuông)",
+    "item_location": "Bana Hill, Da Nang, Vietnam",
+    "filter": "landscape"
+  },
+  { 
+    "id": "6",
+    "item_src": "/images/portfolio/image6.jpg",
+    "item_thumb": "/images/portfolio/image6-thumb.jpg",
+    "item_name": "Hoi An old-town port (bến đò phố cổ Hội An)",
+    "item_location": "Hoi An, Vietnam",
+    "filter": "landscape"
+  },
+  { 
+    "id": "7",
+    "item_src": "/images/portfolio/image7.jpg",
+    "item_thumb": "/images/portfolio/image7-thumb.jpg",
+    "item_name": "A brazier (lò than)",
+    "item_location": "Ho Chi Minh city, Vietnam",
+    "filter": "landscape"
+  },
+  { 
+    "id": "8",
+    "item_src": "/images/portfolio/image8.jpg",
+    "item_thumb": "/images/portfolio/image8-thumb.jpg",
+    "item_name": "Chung cake in cooking pot (nồi bánh chưng)",
+    "item_location": "Ho Chi Minh city, Vietnam",
+    "filter": "landscape"
+  },
+  { 
+    "id": "9",
+    "item_src": "/images/portfolio/image9.jpg",
+    "item_thumb": "/images/portfolio/image9-thumb.jpg",
+    "item_name": "Tam Quan gate (Cổng Tam Quan)",
+    "item_location": "Trang An, Ninh Binh, Vietnam",
+    "filter": "landscape"
+  },
+  { 
+    "id": "10",
+    "item_src": "/images/portfolio/image10.jpg",
+    "item_thumb": "/images/portfolio/image10-thumb.jpg",
+    "item_name": "Water Lily (hoa Súng)",
+    "item_location": "Tam Coc, Ninh Binh, Vietnam",
+    "filter": "landscape"
+  },
+  { 
+    "id": "11",
+    "item_src": "/images/portfolio/image11.jpg",
+    "item_thumb": "/images/portfolio/image11-thumb.jpg",
+    "item_name": "A view from Tran temple (Đền Trần)",
+    "item_location": "Trang An, Ninh Binh, Vietnam",
+    "filter": "portrait"
+  },
+  { 
+    "id": "12",
+    "item_src": "/images/portfolio/image12.jpg",
+    "item_thumb": "/images/portfolio/image12-thumb.jpg",
+    "item_name": "A boat tour on Ngo Dong river",
+    "item_location": "Tam Coc, Ninh Binh, Vietnam",
+    "filter": "landscape"
+  },
+  { 
+    "id": "13",
+    "item_src": "/images/portfolio/image13.jpg",
+    "item_thumb": "/images/portfolio/image13-thumb.jpg",
+    "item_name": "A boat tour on Ngo Dong river",
+    "item_location": "Tam Coc, Ninh Binh, Vietnam",
+    "filter": "landscape"
+  },
+  { 
+    "id": "14",
+    "item_src": "/images/portfolio/image14.jpg",
+    "item_thumb": "/images/portfolio/image14-thumb.jpg",
+    "item_name": "Boat riding lady",
+    "item_location": "Tam Coc, Ninh Binh, Vietnam",
+    "filter": "portrait"
+  },
+  { 
+    "id": "15",
+    "item_src": "/images/portfolio/image15.jpg",
+    "item_thumb": "/images/portfolio/image15-thumb.jpg",
+    "item_name": "My friends pre-wedding photoshoot",
+    "item_location": "Ashton Norwood, Kaitoke, New Zealand",
+    "filter": "pre-wedding"
+  },
+  { 
+    "id": "16",
+    "item_src": "/images/portfolio/image16.jpg",
+    "item_thumb": "/images/portfolio/image16-thumb.jpg",
+    "item_name": "My friends pre-wedding photoshoot",
+    "item_location": "Oriental Bay, Wellington, New Zealand",
+    "filter": "pre-wedding"
+  }
+]
