@@ -1,6 +1,5 @@
 import React from "react";
 import AstroHelmet from '../components/AstroHelmet'
-import Fluid from '../components/Fluid'
 
 export default function AboutMe() {
   return (
@@ -43,7 +42,6 @@ export default function AboutMe() {
             </div>
           </div>
         </div>
-        <Fluid/>
       </div>
     </div>
   );

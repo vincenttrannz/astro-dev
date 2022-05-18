@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import ArcText from 'arc-text'
 
-export default function Fluid() {
+export default function Skills() {
   const whatCanData = [
     {
       dataIcon: "1",

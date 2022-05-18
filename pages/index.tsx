@@ -4,7 +4,9 @@ import { scrollDown } from '../public/js/lib/function'
 // Import components
 import TypeText from "./components/TypeText";
 import Social from "./components/Social";
-import AboutMe from './section/AboutMe'
+import AboutMe from './section/AboutMe';
+import Skills from './section/Skills';
+import ImagesSlider from './section/ImagesSlider';
 
 const Home: NextPage = () => {
   return (
@@ -21,6 +23,8 @@ const Home: NextPage = () => {
         </div>
       </div>
       <AboutMe/>
+      <Skills/>
+      <ImagesSlider/>
     </>
   );
 };
