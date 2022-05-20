@@ -9,12 +9,6 @@ export default function ImagesSlider() {
     photoIndex: 0,
     isOpen: false,
   };
-  // Image details
-  const imageDetail = {
-    imageIndex: 0,
-    imageTitle: 'Test',
-    imageDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto ipsam neque nihil quo, quia ipsa maiores, voluptates ad inventore iure illo dignissimos dicta.'
-  }
   // Settings for Slick slider
   const settings = {
     dots: true,
@@ -25,52 +19,50 @@ export default function ImagesSlider() {
     autoplay: false,
     autoplaySpeed: 8000,
     pauseOnHover: true,
-    slidesToShow: 3,
-    slidesToScroll: 3,
+    slidesToShow: 5,
+    slidesToScroll: 5,
   };
   const images = portfolio.map((item) => item.item_src);
   const [prepareLightbox, setLightbox] = useState(lightboxSetup);
-  const [imageInfo, setImageInfo] = useState(imageDetail);
   // Lightbox for image
   const { photoIndex, isOpen } = prepareLightbox;
-  // Image info
-  const { imageIndex, imageTitle, imageDescription } = imageInfo;
-
-  const handlerImageSelect = ((e:HTMLAnchorElement, i:number, image_info:any) => {
+  const imageCaption = portfolio.map((item) => {
+    return (
+      <div>
+        <h4>{item.item_name}</h4>
+        <p>
+          <small>{item.item_location}</small>
+        </p>
+      </div>
+    );
+  });
+  const handlerImageSelect = ((e:HTMLAnchorElement, i:number) => {
     setLightbox({ isOpen: true, photoIndex: i });
-    setImageInfo({
-      imageIndex: image_info.id,
-      imageTitle: image_info.item_name,
-      imageDescription: image_info.item_location
-    });
   })
   return (
     <>
       <div className="container py-9">
-        <div className="slider">
-          <div className="slider__container">
+        <div className="slider w-100">
+          <div className="slider__container w-100">
             <Slider {...settings} className="pb-2">
               {portfolio.map((item, i:number) => {
                 return (
                   <a
                     role="button"
-                    onClick={(e:any) => handlerImageSelect(e, i, item)}
+                    onClick={(e:any) => handlerImageSelect(e, i)}
                     className="slider-image__container px-3"
                     key={i}
                   >
                     <div className="slider-image__overlay px-3">
-                      <h2>{ i + 1 }</h2>
+                      <h2>{ Number(i + 1) < 10 ? `0${i + 1}` : `${i + 1}` }</h2>
                     </div>
-                    <img className="slider-image__image" src={`${item.item_thumb.split(".jpg")[0]}-hor.jpg`} alt="" />
+                    <div className="w-100 h-100 overflow-hidden">
+                      <img className="slider-image__image w-100 h-100" src={`${item.item_thumb.split(".jpg")[0]}-hor.jpg`} alt="" />
+                    </div>
                   </a>
                 );
               })}
             </Slider>
-          </div>
-          <div className="slider__detail">
-              <h4>{ imageIndex }</h4>
-              <h2>{ imageTitle }</h2>
-              <p>{ imageDescription }</p>
           </div>
         </div>
       </div>
@@ -104,6 +96,7 @@ export default function ImagesSlider() {
               isOpen: true,
             })
           }
+          imageCaption={imageCaption[photoIndex]}
         />
       )}
     </>

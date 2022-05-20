@@ -3,6 +3,26 @@ import * as THREE from "three";
 
 export default function SpaceScene() {
   const SpaceBG = useRef<HTMLDivElement>(null);
+
+  function createCircleTexture(color:any, size:any) {
+    var matCanvas = document.createElement('canvas');
+    matCanvas.width = matCanvas.height = size;
+    var matContext = matCanvas.getContext('2d');
+    // create texture object from canvas.
+    var texture = new THREE.Texture(matCanvas);
+    // Draw a circle
+    var center = size / 2;
+    matContext?.beginPath();
+    matContext?.arc(center, center, size/2, 0, 2 * Math.PI, false);
+    matContext?.closePath();
+    matContext!.fillStyle = color;
+    matContext?.fill();
+    // need to set needsUpdate
+    texture.needsUpdate = true;
+    // return a texture made from the canvas
+    return texture;
+  }
+
   useEffect(() => {
     // Scene configuration and variables
     let requestID;
@@ -23,8 +43,9 @@ export default function SpaceScene() {
     // ==> Stars Scene
     const starGeometry = new THREE.BufferGeometry();
     const starMaterial = new THREE.PointsMaterial({
-      size: 0.25,
+      size: 1,
       blending: THREE.AdditiveBlending,
+      map: createCircleTexture('#fff', 256),
       depthTest: false,
       transparent: true,
     });

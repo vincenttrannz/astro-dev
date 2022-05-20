@@ -1,9 +1,6 @@
 .slider {
-  display: grid;
+  display: flex;
   position: relative;
-  width: 100%;
-  grid-template-columns: 60% 40%;
-  gap: 45px;
   .slick-list {
     padding-bottom: 5rem;
     .slick-slide {
@@ -13,27 +10,37 @@
     }
   }
   &__container {
-    width: 100%;
     .slider-image {
       &__container {
         position: relative;
-        aspect-ratio: 1/2.5;
+        aspect-ratio: 1/2;
+        overflow: hidden;
+        &:hover {
+          .slider-image {
+            &__image{
+              transform: scale(1.15);
+            }
+            &__overlay {
+              background-color: scale-color(#ffffff20, $lightness: 15%);
+            }
+          }
+        }
       }
       &__overlay {
         position: absolute;
         width: calc(100% - 4rem);
         height: 100%;
         background: rgb(20,21,28);
-        background: linear-gradient(0deg, #14151c 0%, #ffffff10 40%, #ffffff10 60%, #14151c 100%);
+        background: linear-gradient(0deg, $black-bg-color 0%, #ffffff10 40%, #ffffff10 60%, $black-bg-color 100%);
         z-index: 2;
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
         align-items: flex-end;
+        transition: background-color 0.3s $easeInOut;
       }
       &__image {
-        width: 100%;
-        height: 100%;
+        transition: transform 0.3s $easeInOut;
         object-fit: cover;
         position: relative;
       }
