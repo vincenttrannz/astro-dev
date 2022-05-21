@@ -84,3 +84,14 @@
     justify-items: center;
   }
 }
+
+@media (max-width: $mobile-screen-size) {
+  .skills-container {
+    grid-template-columns: 1fr;
+    .feature {
+      &:nth-child(odd){
+        animation-delay: 0s;
+      }
+    }
+  }
+}

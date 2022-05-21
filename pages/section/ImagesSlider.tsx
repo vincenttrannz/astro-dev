@@ -21,6 +21,33 @@ export default function ImagesSlider() {
     pauseOnHover: true,
     slidesToShow: 5,
     slidesToScroll: 5,
+    customPaging: (i:any) => (
+      <div className="slick-custom-dot">
+      </div>
+    ),
+    responsive: [
+      {
+        breakpoint: 1399,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 4,
+        }
+      },
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+        }
+      },
+      {
+        breakpoint: 576,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        }
+      },
+    ]
   };
   const images = portfolio.map((item) => item.item_src);
   const [prepareLightbox, setLightbox] = useState(lightboxSetup);
@@ -53,8 +80,9 @@ export default function ImagesSlider() {
                     className="slider-image__container px-3"
                     key={i}
                   >
+                    <span className="location_text fs-sm fw-bold text-white">{ item.item_location }</span>
                     <div className="slider-image__overlay px-3">
-                      <h2>{ Number(i + 1) < 10 ? `0${i + 1}` : `${i + 1}` }</h2>
+                      <p className="font--gothic fs-1">{ Number(i + 1) < 10 ? `0${i + 1}` : `${i + 1}` }</p>
                     </div>
                     <div className="w-100 h-100 overflow-hidden">
                       <img className="slider-image__image w-100 h-100" src={`${item.item_thumb.split(".jpg")[0]}-hor.jpg`} alt="" />

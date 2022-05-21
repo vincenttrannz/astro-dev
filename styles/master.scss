@@ -1,12 +1,11 @@
 // Import all other SCSS files
-
+@import "~aos/dist/aos.css";
 // Old styles
 @import
 './old_css/animate.scss',
 './old_css/base.scss',
 './old_css/essential-icons.scss',
 './old_css/extra.scss',
-'./old_css/fontsheet.scss',
 './old_css/hamburgers.scss',
 './old_css/lightbox.scss',
 './old_css/locomotive-scroll.scss',
@@ -18,7 +17,9 @@
 ;
 
 // New styles
-@import 
+@import
+'./fontsheet',
+'./base',
 './space-scene',
 './meteor',
 './variables',

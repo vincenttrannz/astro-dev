@@ -1,0 +1,171 @@
+/*------------------------ 1 Body and Core Css ------------------------*/
+
+body {
+  font-family: "Montserrat", sans-serif;
+  /* cursor: url(../assets/ship-cursor.png), auto; */
+}
+
+html {
+  height: 100%;
+}
+
+p, a {
+  font-family: "Montserrat", sans-serif;
+  color: #f1f1f1;
+  line-height: 1.75;
+  letter-spacing: 0.5px;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: "Montserrat", sans-serif;
+  color: #f1f1f1;
+  line-height: 1.75;
+}
+
+.not-display {
+  display: none;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  background: #fff;
+  z-index: 1000;
+  width: 100%;
+  padding: 30px;
+  display: none;
+  -webkit-box-shadow: -5px 10px 12px -10px rgba(201, 201, 201, 0.67);
+  -moz-box-shadow: -5px 10px 12px -10px rgba(201, 201, 201, 0.67);
+  box-shadow: -5px 10px 12px -10px rgba(201, 201, 201, 0.67);
+}
+
+.nav-menu {
+  float: right;
+  line-height: 32px;
+}
+
+nav ul li {
+  float: left;
+  margin-right: 15px;
+  font-family: "Poppins", sans-serif;
+  font-size: 1em;
+}
+
+nav ul li a {
+  color: #000;
+}
+
+nav ul li a:hover {
+  color: #afafaf;
+}
+
+.slick-next::before,
+.slick-prev::before {
+  color: black !important;
+}
+
+.slick-dots li button:before {
+  font-size: 10px !important;
+}
+
+#back-home {
+  cursor: pointer;
+}
+
+#back::before {
+  content: "◀︎";
+  position: relative;
+  cursor: pointer;
+}
+
+#back:hover {
+  color: gray;
+}
+
+.logo {
+  float: left;
+}
+
+.responsive {
+  display: none;
+  font-size: 23px;
+}
+
+.overlay {
+  position: fixed;
+  z-index: 99;
+  background: black;
+  background-size: cover;
+  height: 999999999px;
+  width: 999999999px;
+}
+
+.active {
+  color: #afafaf !important;
+}
+
+footer {
+  background: #000;
+  padding: 90px 0;
+  /* margin-top:90px; */
+  text-align: center;
+}
+
+footer p {
+  line-height: 20px;
+  margin-top: 20px;
+}
+
+.site-button:focus {
+  outline: 0;
+}
+
+.nav-menu li a:focus {
+  color: #000;
+}
+
+.ok {
+  background: green !important;
+  border: solid 2px green !important;
+  color: white;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+.form-inp.reqError,
+.contact-form textarea.reqError {
+  border-color: #f00;
+}
+
+.content {
+  margin-top: 120px;
+}
+
+@media (max-width: 767px) {
+  .content {
+    margin-top: 30px;
+  }
+}
+
+.subpage-nav {
+  display: block !important;
+  position: relative;
+}
+
+.page-title {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  z-index: 2;
+  position: relative;
+}
+
+.page-title h1 {
+  font-size: 75px;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: -3px;
+  margin-bottom: 20px;
+}

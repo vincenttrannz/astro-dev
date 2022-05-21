@@ -1,22 +1,24 @@
 import React from "react";
-import AstroHelmet from '../components/AstroHelmet'
+import Image from "next/image";
 
 export default function AboutMe() {
   return (
-    <div className="about" id="about">
-      <div className="container">
-        <div className="row gx-4">
-          <div
-            className="fader col py-6 wow fadeInLeft position-relative"
-            data-wow-delay="0.4s"
-          >
-            <AstroHelmet/>
+    <div className="about overflow-hidden" id="about">
+      <div className="container mt-4 mb-8">
+        <div className="row gx-md-6">
+          <div className="col-md-6 py-8 py-md-6 position-relative">
+            <Image
+              data-aos="fade-right" 
+              data-aos-offset="200"
+              src="/images/astro2.svg"
+              alt="Astro helmet"
+              layout="fill"
+              objectFit="contain"
+              priority
+            />
           </div>
-          <div
-            className="col py-6 wow fadeInRight position-relative"
-            data-wow-delay="0.8s"
-          >
-            <div className="out">
+          <div className="col-md-6 py-3 py-md-6 position-relative">
+            <div data-aos="fade-left" data-aos-offset="200">
               <h2>WELCOME TO MY JOURNEY</h2>
               <br />
               <p>

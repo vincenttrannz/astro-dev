@@ -32,7 +32,7 @@ export default function Skills() {
   }, [])
 
   return (
-    <div className="container skills-container">
+    <div data-sal="fade" className="container skills-container">
       {whatCanData.map((item, i) => {
         return (
           <div

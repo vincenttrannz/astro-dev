@@ -6,6 +6,7 @@ export default function Document() {
     <Html>
       <Head>
         {/* Google Web fonts */}
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet"/>
         <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet"/>
         {/* DEV ICON */}

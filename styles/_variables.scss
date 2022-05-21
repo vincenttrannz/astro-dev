@@ -2,13 +2,13 @@
 =            VARIABLES SCSS           =
 =======================================*/
 $black: #030303;
+$white: #fff;
 $black-bg-color: #14151C;
 
-// $theme-colors: (
-//   'info': tomato,
-//   'danger': teal,
-//   'primary': $vic-teal,
-// );
+$theme-colors: (
+  'black': $black,
+  'white': $white
+);
 
 // Project breakpoints
 $small-mobile-screen-size: 576px;
@@ -54,7 +54,7 @@ $container-max-widths: (
 
 // Customise bootstrap variable
 $spacer: 2rem;
-$container-padding-x: max(1rem, min(2.5vw, 2rem));
+$container-padding-x: max(2rem, min(2.5vw, 4rem));
 $input-btn-focus-width: 0;
 $btn-disabled-opacity: .25;
 
@@ -107,6 +107,33 @@ $spacers: (
   9: (
     $spacer * 6,
   ),
+);
+
+// 4. Font size
+
+// $font-size-root affects the value of `rem`, which is used for as well font sizes, paddings, and margins
+// $font-size-base affects the font size of the body text
+$font-size-root:              null;
+$font-size-base:              1rem; // Assumes the browser default, typically `16px`
+$font-size-sm:                $font-size-base * .875;
+$font-size-lg:                $font-size-base * 1.25;
+// Heading size
+$h1-font-size:                $font-size-base * 3;
+$h2-font-size:                $font-size-base * 2.5;
+$h3-font-size:                $font-size-base * 2;
+$h4-font-size:                $font-size-base * 1.75;
+$h5-font-size:                $font-size-base * 1.5;
+$h6-font-size:                $font-size-base * 1.25;
+
+$font-sizes: (
+  1: $h1-font-size,
+  2: $h2-font-size,
+  3: $h3-font-size,
+  4: $h4-font-size,
+  5: $h5-font-size,
+  6: $h6-font-size,
+  sm: $font-size-sm,
+  lg: $font-size-lg
 );
 
 /* import bootstrap to set changes */
