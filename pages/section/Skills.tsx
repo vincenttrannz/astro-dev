@@ -1,5 +1,6 @@
-import React, { useEffect, useRef } from "react";
-import ArcText from 'arc-text'
+import React, { useEffect } from "react";
+import ArcText from 'arc-text';
+import AOSComp from '../components/partials/AOSComp';
 
 export default function Skills() {
   const whatCanData = [
@@ -32,7 +33,13 @@ export default function Skills() {
   }, [])
 
   return (
-    <div data-sal="fade" className="container skills-container">
+    <AOSComp 
+      AOSAnimation="fade-up" 
+      AOSDuration="1000" 
+      AOSRepeat={false}
+      AOSOffset="200"
+      className="container skills-container"
+    >
       {whatCanData.map((item, i) => {
         return (
           <div
@@ -47,6 +54,6 @@ export default function Skills() {
           </div>
         );
       })}
-    </div>
+    </AOSComp>
   );
 }

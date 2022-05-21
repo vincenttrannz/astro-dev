@@ -7,6 +7,7 @@ import Social from "./components/Social";
 import AboutMe from './section/AboutMe';
 import Skills from './section/Skills';
 import ImagesSlider from './section/ImagesSlider';
+import Portfolios from './section/Portfolios';
 
 const Home: NextPage = () => {
   return (
@@ -25,6 +26,7 @@ const Home: NextPage = () => {
       <AboutMe/>
       <Skills/>
       <ImagesSlider/>
+      <Portfolios/>
     </>
   );
 };

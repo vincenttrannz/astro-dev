@@ -65,13 +65,14 @@
           .location_text {
             top: 20%;
             opacity: 1;
+            z-index: 3;
           }
           .slider-image {
             &__image{
               transform: scale(1.15);
             }
             &__overlay {
-              background-color: scale-color(#ffffff20, $lightness: 15%);
+              background-color: scale-color(#14151C50, $lightness: -100%);
             }
           }
         }
@@ -93,6 +94,18 @@
         transition: transform 0.3s $easeInOut;
         object-fit: cover;
         position: relative;
+      }
+    }
+  }
+}
+
+@media (max-width: $mobile-screen-size) {
+  .slider {
+    &__container {
+      .slider-image {
+        &__overlay {
+          width: calc(100% - 2rem);
+        }
       }
     }
   }

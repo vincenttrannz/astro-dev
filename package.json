@@ -43,6 +43,7 @@
     "react-slick": "^0.29.0",
     "react-three": "^0.9.7",
     "three": "^0.140.0",
+    "ts-shader-loader": "^1.0.6",
     "typed.js": "^2.0.12",
     "typescript": "4.6.3"
   }

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Slider from "react-slick";
 import Lightbox from "react-image-lightbox";
+import AOSComp from '../components/partials/AOSComp';
 import portfolio from "../../public/data/portfolio.json";
 
 export default function ImagesSlider() {
@@ -68,7 +69,13 @@ export default function ImagesSlider() {
   })
   return (
     <>
-      <div className="container py-9">
+      <AOSComp 
+        AOSAnimation="fade-up"
+        AOSOffset="200"
+        AOSDuration="1000"
+        AOSRepeat={false}
+        className="container py-9"
+      >
         <div className="slider w-100">
           <div className="slider__container w-100">
             <Slider {...settings} className="pb-2">
@@ -77,11 +84,11 @@ export default function ImagesSlider() {
                   <a
                     role="button"
                     onClick={(e:any) => handlerImageSelect(e, i)}
-                    className="slider-image__container px-3"
+                    className="slider-image__container px-2 px-md-3"
                     key={i}
                   >
                     <span className="location_text fs-sm fw-bold text-white">{ item.item_location }</span>
-                    <div className="slider-image__overlay px-3">
+                    <div className="slider-image__overlay px-2 px-md-3">
                       <p className="font--gothic fs-1">{ Number(i + 1) < 10 ? `0${i + 1}` : `${i + 1}` }</p>
                     </div>
                     <div className="w-100 h-100 overflow-hidden">
@@ -93,7 +100,7 @@ export default function ImagesSlider() {
             </Slider>
           </div>
         </div>
-      </div>
+      </AOSComp>
 
       {/* Handing when Lightbox is open */}
 

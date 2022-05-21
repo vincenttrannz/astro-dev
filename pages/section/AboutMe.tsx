@@ -1,24 +1,29 @@
 import React from "react";
 import Image from "next/image";
+import AOSComp from '../components/partials/AOSComp';
 
 export default function AboutMe() {
   return (
-    <div className="about overflow-hidden" id="about">
+    <div className="my-6 overflow-hidden" id="about">
       <div className="container mt-4 mb-8">
         <div className="row gx-md-6">
-          <div className="col-md-6 py-8 py-md-6 position-relative">
+          <AOSComp 
+            className="col-md-6 py-8 py-md-6 position-relative" 
+            AOSAnimation="fade-right" 
+            AOSOffset="200"
+            AOSDuration="1000"
+            AOSRepeat={false}
+            >
             <Image
-              data-aos="fade-right" 
-              data-aos-offset="200"
               src="/images/astro2.svg"
               alt="Astro helmet"
               layout="fill"
               objectFit="contain"
               priority
             />
-          </div>
+          </AOSComp>
           <div className="col-md-6 py-3 py-md-6 position-relative">
-            <div data-aos="fade-left" data-aos-offset="200">
+            <AOSComp AOSAnimation="fade-left" AOSOffset="200" AOSDuration="1000" AOSRepeat={false}>
               <h2>WELCOME TO MY JOURNEY</h2>
               <br />
               <p>
@@ -41,7 +46,7 @@ export default function AboutMe() {
                 ></i>{" "}
                 Download my CV
               </a>
-            </div>
+            </AOSComp>
           </div>
         </div>
       </div>
