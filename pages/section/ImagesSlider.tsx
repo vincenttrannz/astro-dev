@@ -2,9 +2,15 @@ import React, { useState } from "react";
 import Slider from "react-slick";
 import Lightbox from "react-image-lightbox";
 import AOSComp from '../components/partials/AOSComp';
-import portfolio from "../../public/data/portfolio.json";
+import { getStrapiMedia, getStrapiData } from "../../lib/fetchData";
+// Import types
+import { Photo } from '../../types/type'
 
-export default function ImagesSlider() {
+interface PhotoProps {
+  photos: Photo[];
+}
+
+const ImagesSlider: React.FC<PhotoProps> = ({ photos }) => {
   // Light box setup
   const lightboxSetup = {
     photoIndex: 0,
@@ -14,7 +20,7 @@ export default function ImagesSlider() {
   const settings = {
     dots: true,
     focusOnSelect: false,
-    infinite: true,
+    infinite: false,
     speed: 500,
     arrows: false,
     autoplay: false,
@@ -22,9 +28,8 @@ export default function ImagesSlider() {
     pauseOnHover: true,
     slidesToShow: 5,
     slidesToScroll: 5,
-    customPaging: (i:any) => (
-      <div className="slick-custom-dot">
-      </div>
+    customPaging: () => (
+      <div className="slick-custom-dot"></div>
     ),
     responsive: [
       {
@@ -50,17 +55,17 @@ export default function ImagesSlider() {
       },
     ]
   };
-  const images = portfolio.map((item) => item.item_src);
+  const images = photos.map((item) => getStrapiMedia(getStrapiData(item).PhotoImage));
   const [prepareLightbox, setLightbox] = useState(lightboxSetup);
   // Lightbox for image
   const { photoIndex, isOpen } = prepareLightbox;
-  const imageCaption = portfolio.map((item) => {
+  const imageCaption = photos.map((item) => {
+    const PhotoTitle = item.attributes.PhotoTitle;
+    const PhotoLocation = item.attributes.PhotoLocation;
     return (
       <div>
-        <h4>{item.item_name}</h4>
-        <p>
-          <small>{item.item_location}</small>
-        </p>
+        <h4>{PhotoTitle}</h4>
+        <p>{PhotoLocation}</p>
       </div>
     );
   });
@@ -79,24 +84,30 @@ export default function ImagesSlider() {
         <div className="slider w-100">
           <div className="slider__container w-100">
             <Slider {...settings} className="pb-2">
-              {portfolio.map((item, i:number) => {
-                return (
-                  <a
-                    role="button"
-                    onClick={(e:any) => handlerImageSelect(e, i)}
-                    className="slider-image__container px-2 px-md-3"
-                    key={i}
-                  >
-                    <span className="location_text fs-sm fw-bold text-white">{ item.item_location }</span>
-                    <div className="slider-image__overlay px-2 px-md-3">
-                      <p className="font--gothic fs-1">{ Number(i + 1) < 10 ? `0${i + 1}` : `${i + 1}` }</p>
-                    </div>
-                    <div className="w-100 h-100 overflow-hidden">
-                      <img className="slider-image__image w-100 h-100" src={`${item.item_thumb.split(".jpg")[0]}-hor.jpg`} alt="" />
-                    </div>
-                  </a>
-                );
-              })}
+              {
+                photos.map(photo => {
+                  const PhotoImageURL = getStrapiMedia(getStrapiData(photo).PhotoImage);
+                  const PhotoID = photo.id;
+                  const PhotoTitle = photo.attributes.PhotoTitle;
+                  const PhotoLocation = photo.attributes.PhotoLocation;
+                  return (
+                    <a 
+                      role="button"
+                      onClick={(e:any) => handlerImageSelect(e, PhotoID - 1)}
+                      className="slider-image__container px-2 px-md-3"
+                      key={PhotoID}
+                    >
+                      <span className="location_text fs-sm fw-bold text-white">{ PhotoLocation }</span>
+                      <div className="slider-image__overlay px-2 px-md-3">
+                        <p className="font--gothic fs-1">{ Number(PhotoID) < 10 ? `0${PhotoID}` : `${PhotoID}` }</p>
+                      </div>
+                      <div className="w-100 h-100 overflow-hidden">
+                        <img className="slider-image__image w-100 h-100" src={PhotoImageURL} alt={PhotoTitle} />
+                      </div>
+                    </a>
+                  )
+                })
+              }
             </Slider>
           </div>
         </div>
@@ -137,3 +148,5 @@ export default function ImagesSlider() {
     </>
   );
 }
+
+export default ImagesSlider;

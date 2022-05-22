@@ -73,8 +73,8 @@ function Planet({}: Props) {
     controls.enableDamping = true;
     controls.dampingFactor = 0.05;
     controls.screenSpacePanning = false;
-    controls.minDistance = 4.5;
-    controls.maxDistance = 4.5;
+    controls.minDistance = 4.25;
+    controls.maxDistance = 4.25;
     controls.enableZoom = false;
     controls.maxPolarAngle = Math.PI;
 
@@ -83,10 +83,10 @@ function Planet({}: Props) {
       y: number | undefined;
     }
 
-    const mouse:mouse = {
-      x: undefined,
-      y: undefined
-    };
+    // const mouse:mouse = {
+    //   x: undefined,
+    //   y: undefined
+    // };
 
     const animate = function () {
       const canvas = renderer.domElement;
@@ -102,11 +102,11 @@ function Planet({}: Props) {
         y: -5000
       })
 
-      gsap.to(group.rotation, {
-        // x: -mouse.y * 0.2,
-        y: mouse.x! * 0.5,
-        duration: 2
-      })
+      // gsap.to(group.rotation, {
+      //   // x: -mouse.y * 0.2,
+      //   y: mouse.x! * 0.5,
+      //   duration: 2
+      // })
 
       renderer.render(scene, camera);
     };
@@ -121,10 +121,10 @@ function Planet({}: Props) {
       camera.updateProjectionMatrix();
     };
     window.addEventListener("resize", handleWindowResize);
-    addEventListener('mousemove', (event:any) => {
-      mouse.x = (event?.clientX / innerWidth) * 2 - 1
-      mouse.y = (event?.clientY / innerHeight) * 2 + 1
-    })
+    // addEventListener('mousemove', (event:any) => {
+    //   mouse.x = (event?.clientX / innerWidth) * 2 - 1
+    //   mouse.y = (event?.clientY / innerHeight) * 2 + 1
+    // })
   }, [Earth])
 
   return (

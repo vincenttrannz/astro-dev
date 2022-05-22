@@ -1,8 +1,16 @@
 import React from "react";
 import Image from "next/image";
+import ReactMarkdown from 'react-markdown';
 import AOSComp from '../components/partials/AOSComp';
+// Import types
+import { Homepage } from '../../types/type'
 
-export default function AboutMe() {
+interface AboutMe {
+  aboutDescription: Homepage['attributes']['AboutSectionDescription'];
+  aboutImage: Homepage['attributes']['AboutSectionImage'];
+}
+
+const AboutMe: React.FC<AboutMe> = ({ aboutDescription, aboutImage }) => {
   return (
     <div className="my-6 overflow-hidden" id="about">
       <div className="container mt-4 mb-8">
@@ -15,7 +23,7 @@ export default function AboutMe() {
             AOSRepeat={false}
             >
             <Image
-              src="/images/astro2.svg"
+              src={String(aboutImage)}
               alt="Astro helmet"
               layout="fill"
               objectFit="contain"
@@ -24,25 +32,17 @@ export default function AboutMe() {
           </AOSComp>
           <div className="col-md-6 py-3 py-md-6 position-relative">
             <AOSComp AOSAnimation="fade-left" AOSOffset="200" AOSDuration="1000" AOSRepeat={false}>
-              <h2>WELCOME TO MY JOURNEY</h2>
-              <br />
-              <p>
-                I am a full stack web developer with strengths in front end
-                development and a particular interest in UI/UX designs. My
-                passion for learning and growth lead me into tech, which I
-                believe is an industry of ingenuity and adaptability. I enjoy
-                the discipline of learning new skills and problem solving
-                everything from bugs in code to interpersonal conflict.
-              </p>
-              <br />
+              <ReactMarkdown>
+                { aboutDescription }
+              </ReactMarkdown>
               <a
-                className="button"
+                className="button text-grey"
                 target="_blank"
                 href="/documents/Vincent_CV.pdf"
               >
                 <i
                   className="far fa-file-pdf"
-                  style={{ fontSize: "1.25em", color: "gray" }}
+                  style={{ fontSize: "1.25em" }}
                 ></i>{" "}
                 Download my CV
               </a>
@@ -53,3 +53,5 @@ export default function AboutMe() {
     </div>
   );
 }
+
+export default AboutMe;

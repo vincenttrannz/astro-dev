@@ -3,11 +3,13 @@
 =======================================*/
 $black: #030303;
 $white: #fff;
+$grey: #5a5a5a;
 $black-bg-color: #14151C;
 
 $theme-colors: (
   'black': $black,
-  'white': $white
+  'white': $white,
+  'grey': $grey
 );
 
 // Project breakpoints
