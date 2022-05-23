@@ -57,6 +57,47 @@ function Planet({}: Props) {
     });
     const atmosphere = new THREE.Mesh(atmosphereGeo, atmosphereMaterial);
 
+    // Create PIN
+    // New Zealand: 40.9006° S, 174.8860° E
+    const pin = new THREE.Mesh(
+      new THREE.SphereBufferGeometry(0.05, 20, 20),
+      new THREE.MeshBasicMaterial({ color: 0xff0000 })
+    )
+
+    const pin2 = new THREE.Mesh(
+      new THREE.SphereBufferGeometry(0.05, 20, 20),
+      new THREE.MeshBasicMaterial({ color: 0xff1 })
+    )
+
+    const pinNZ = {
+      lat: -41.2924,
+      lng: 174.7787
+    }
+
+    const pinRandom = {
+      lat: -23.6345,
+      lng: 102.5528
+    }
+
+    function calcPosFromLatLonRad(p:any) {
+      const lat = (90 - p.lat) * Math.PI/180;
+      const lng = (180 + p.lng) * Math.PI/180;
+
+      const pinX = -Math.sin(lat) * Math.cos(lng);
+      const pinY = Math.sin(lat) * Math.cos(lng);
+      const pinZ = Math.cos(lat) + 2.68;
+
+      return {
+        pinX, pinY, pinZ
+      }
+    }
+
+    const posPinNZ = calcPosFromLatLonRad(pinNZ);
+    const posPinRandom = calcPosFromLatLonRad(pinRandom);
+
+    pin.position.set(posPinNZ.pinX, posPinNZ.pinY, posPinNZ.pinZ);
+    pin2.position.set(posPinRandom.pinX, posPinRandom.pinY, posPinRandom.pinZ);
+
     // Set atmosphere scale
     atmosphere.scale.set(1.23, 1.23, 1.23);
     scene.add(atmosphere);
@@ -64,6 +105,8 @@ function Planet({}: Props) {
     // Group for planet and atmosphere
     const group = new THREE.Group();
     group.add(planet);
+    group.add(pin);
+    group.add(pin2)
     scene.add(group);
 
     // Set camera position
@@ -78,10 +121,10 @@ function Planet({}: Props) {
     controls.enableZoom = false;
     controls.maxPolarAngle = Math.PI;
 
-    interface mouse {
-      x: number | undefined;
-      y: number | undefined;
-    }
+    // interface mouse {
+    //   x: number | undefined;
+    //   y: number | undefined;
+    // }
 
     // const mouse:mouse = {
     //   x: undefined,
@@ -95,7 +138,7 @@ function Planet({}: Props) {
       
       requestID = window.requestAnimationFrame(animate);
 
-      planet.rotation.y += 0.001;
+      scene.rotation.y += 0.001;
 
       gsap.to(scene.rotation, {
         duration: 2200000,
@@ -125,7 +168,7 @@ function Planet({}: Props) {
     //   mouse.x = (event?.clientX / innerWidth) * 2 - 1
     //   mouse.y = (event?.clientY / innerHeight) * 2 + 1
     // })
-  }, [Earth])
+  }, [])
 
   return (
     <div className='d-flex w-100 justify-content-center align-items-center' id="earth-scene" ref={Earth}></div>
