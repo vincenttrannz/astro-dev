@@ -64,7 +64,7 @@ const ImagesSlider: React.FC<PhotoProps> = ({ photos }) => {
     const PhotoTitle = item.attributes.PhotoTitle;
     const PhotoLocation = item.attributes.PhotoLocation;
     return (
-      <div>
+      <div key={item.id}>
         <h4>{PhotoTitle}</h4>
         <p>{PhotoLocation}</p>
       </div>
