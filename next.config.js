@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: false,
   images: {
     loader: "default",
-    domains: ["localhost"],
+    domains: ["localhost", "astro-test.co.nz"],
   },
   webpack(config){
     config.module.rules.push(

@@ -105,21 +105,39 @@ function Planet({}: Props) {
     // Group for planet and atmosphere
     const group = new THREE.Group();
     group.add(planet);
-    group.add(pin);
-    group.add(pin2)
+    scene.add(pin);
+    scene.add(pin2)
     scene.add(group);
+
+    // Raycaster and pointer event
+    function onMouseDown( event:any ) {
+      event.preventDefault();
+      const mouse3D = new THREE.Vector3(
+        (event.clientX / window.innerWidth),
+        -(event.clientY / window.innerHeight),
+        0.5
+      );
+      const raycaster = new THREE.Raycaster();
+      raycaster.setFromCamera(mouse3D, camera);
+      const intersects = raycaster.intersectObjects(scene.children);
+      console.log(intersects);
+      
+    }
+
+    addEventListener('mousedown', onMouseDown);
 
     // Set camera position
     camera.position.z = 2;
 
     // Controls configuration
-    controls.enableDamping = true;
     controls.dampingFactor = 0.05;
-    controls.screenSpacePanning = false;
     controls.minDistance = 4.25;
     controls.maxDistance = 4.25;
-    controls.enableZoom = false;
     controls.maxPolarAngle = Math.PI;
+    controls.enableDamping = true;
+    controls.screenSpacePanning = false;
+    controls.enableZoom = false;
+    controls.enablePan = false;
 
     // interface mouse {
     //   x: number | undefined;

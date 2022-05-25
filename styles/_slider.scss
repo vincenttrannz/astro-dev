@@ -103,6 +103,11 @@
   .slider {
     &__container {
       .slider-image {
+        &__container {
+          .location_text {
+            left: 1.5rem;
+          }
+        }
         &__overlay {
           width: calc(100% - 2rem);
         }

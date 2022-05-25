@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Slider from "react-slick";
+import Image from 'next/image';
 import Lightbox from "react-image-lightbox";
 import AOSComp from '../components/partials/AOSComp';
 import { getStrapiMedia, getStrapiData } from "../../lib/fetchData";
@@ -101,8 +102,8 @@ const ImagesSlider: React.FC<PhotoProps> = ({ photos }) => {
                       <div className="slider-image__overlay px-2 px-md-3">
                         <p className="font--gothic fs-1">{ Number(PhotoID) < 10 ? `0${PhotoID}` : `${PhotoID}` }</p>
                       </div>
-                      <div className="w-100 h-100 overflow-hidden">
-                        <img className="slider-image__image w-100 h-100" src={PhotoImageURL} alt={PhotoTitle} />
+                      <div className="w-100 h-100 overflow-hidden position-relative">
+                        <Image layout="fill" className="slider-image__image w-100 h-100" src={PhotoImageURL} alt={PhotoTitle} priority />
                       </div>
                     </a>
                   )
