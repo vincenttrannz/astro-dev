@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-three/fiber": "^8.0.19",
     "dotenv": "^16.0.0",
     "next": "12.1.5",
     "node-sass": "^7.0.1",
@@ -19,7 +20,7 @@
     "sass": "^1.50.0"
   },
   "devDependencies": {
-    "@react-three/drei": "^9.7.1",
+    "@react-three/drei": "^9.11.3",
     "@splinetool/r3f-spline": "^1.0.1",
     "@splinetool/react-spline": "^2.1.0",
     "@types/aos": "^3.0.4",
@@ -42,7 +43,7 @@
     "react-markdown": "^8.0.3",
     "react-slick": "^0.29.0",
     "react-three": "^0.9.7",
-    "three": "^0.140.0",
+    "three": "^0.140.2",
     "ts-shader-loader": "^1.0.6",
     "typed.js": "^2.0.12",
     "typescript": "4.6.3"

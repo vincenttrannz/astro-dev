@@ -40,7 +40,7 @@ function Planet({}: Props) {
         globeTexture: {
           value: new THREE.TextureLoader().load('/images/physical-world-map-10k.webp')
         }
-    }
+      }
     });
     const planet = new THREE.Mesh(geometry, material);
 
@@ -127,7 +127,7 @@ function Planet({}: Props) {
     addEventListener('mousedown', onMouseDown);
 
     // Set camera position
-    camera.position.z = 2;
+    camera.position.z = 1;
 
     // Controls configuration
     controls.dampingFactor = 0.05;
