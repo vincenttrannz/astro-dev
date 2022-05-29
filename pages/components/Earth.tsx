@@ -7,6 +7,8 @@ import planetFragmentShader from '../../public/shaders/fragment.glsl';
 import planetVertexShader from '../../public/shaders/vertex.glsl';
 import atmosphereVertexShader from '../../public/shaders/atmosphereVertex.glsl'
 import atmosphereFragmentShader from '../../public/shaders/atmosphereFragment.glsl'
+// Import Pin
+import Pin from './Pin';
 
 const Earth = (props: JSX.IntrinsicElements['mesh']) => {
   // ==> Create the planet
@@ -21,23 +23,41 @@ const Earth = (props: JSX.IntrinsicElements['mesh']) => {
     return () => clearTimeout(applyShader);
   }, [])
   return (
-    <mesh
-      {...props}
-      ref={earth}
-      scale={1.5}
+    <>
+      <mesh
+        {...props}
+        scale={1.525}
       >
-      <sphereGeometry args={[2, 64, 64, 64]} />
-      <meshStandardMaterial 
-        map={earthUniform}
-      />
-      { 
-        shader &&
+        <sphereGeometry args={[2, 64, 64, 64]} />
         <shaderMaterial
-          vertexShader={planetVertexShader}
-          fragmentShader={planetFragmentShader}
+          vertexShader={atmosphereVertexShader}
+          fragmentShader={atmosphereFragmentShader}
+          blending={THREE.AdditiveBlending}
+          side={THREE.BackSide}
         />
-      }
-    </mesh>
+      </mesh>
+      <mesh
+        {...props}
+        ref={earth}
+        scale={1.4}
+        >
+        <sphereGeometry args={[2, 64, 64, 64]} />
+        <meshStandardMaterial 
+          map={earthUniform}
+        />
+        <Pin/>
+        { 
+          shader && (
+            <>
+              <shaderMaterial
+                vertexShader={planetVertexShader}
+                fragmentShader={planetFragmentShader}
+              />
+            </>
+          )
+        }
+      </mesh>
+    </>
   )
 }
 
