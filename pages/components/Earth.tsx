@@ -10,7 +10,26 @@ import atmosphereFragmentShader from '../../public/shaders/atmosphereFragment.gl
 // Import Pin
 import Pin from './Pin';
 
-const Earth = (props: JSX.IntrinsicElements['mesh']) => {
+type EarthProps = {
+  meshProps?: JSX.IntrinsicElements['mesh'];
+  changePinClick: (pin:string) => void;
+}
+
+const Earth = ({ meshProps, changePinClick } :EarthProps) => {
+  const pins = [
+    {
+      location: 'New Zealand',
+      lat: -40.677298,
+      lng: -117.177247
+      // -42.677298, -118.177247
+    },
+    {
+      location: 'London',
+      lat: 51.576337,
+      lng: 66.534927
+      // 51.076337, 62.534927
+    }
+  ]
   // ==> Create the planet
   const earthUniform = useLoader(TextureLoader, '/images/physical-world-map-10k.webp');
   const earth = useRef<THREE.Mesh>(null!)
@@ -25,7 +44,7 @@ const Earth = (props: JSX.IntrinsicElements['mesh']) => {
   return (
     <>
       <mesh
-        {...props}
+        {...meshProps}
         scale={1.525}
       >
         <sphereGeometry args={[2, 64, 64, 64]} />
@@ -37,7 +56,7 @@ const Earth = (props: JSX.IntrinsicElements['mesh']) => {
         />
       </mesh>
       <mesh
-        {...props}
+        {...meshProps}
         ref={earth}
         scale={1.4}
         >
@@ -45,7 +64,13 @@ const Earth = (props: JSX.IntrinsicElements['mesh']) => {
         <meshStandardMaterial 
           map={earthUniform}
         />
-        <Pin/>
+        {
+          pins.map((pin) => {
+            return (
+              <Pin pinData={pin} changePinClick={changePinClick}/>
+            )
+          })
+        }
         { 
           shader && (
             <>
