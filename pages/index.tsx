@@ -17,11 +17,12 @@ import { Photo, Homepage } from '../types/type'
 type HomepageProps = {
   photos: Photo[];
   homepage: Homepage;
+  locations: any;
 }
 
-const Home: NextPage<HomepageProps> = ({ photos, homepage }) => {
-  console.log("Homepage data:", homepage);
-  
+const Home: NextPage<HomepageProps> = ({ photos, homepage, locations }) => {
+  // console.log("Homepage data:", homepage);
+  console.log("Location", locations)
   return (
     <>
       <div className="home" id="home">
@@ -41,7 +42,7 @@ const Home: NextPage<HomepageProps> = ({ photos, homepage }) => {
       />
       <Skills skills={getStrapiData(homepage).Skills}/>
       <ImagesSlider photos={photos}/>
-      <Portfolios/>
+      <Portfolios locations={locations}/>
     </>
   );
 };
@@ -54,16 +55,21 @@ export async function getStaticProps() {
   const homepageQuery = {
     populate: "*"
   }
+  const locationQuery = {
+    populate: "*"
+  }
 
-  const [photoRes, homepageRes] = await Promise.all([
+  const [photoRes, homepageRes, locationRes] = await Promise.all([
     fetchAPI('/photo-galleries', photoQuery),
-    fetchAPI('/homepage', homepageQuery)
+    fetchAPI('/homepage', homepageQuery),
+    fetchAPI('/locations', locationQuery)
   ]);
 
   return {
     props: {
       photos: photoRes.data,
-      homepage: homepageRes.data
+      homepage: homepageRes.data,
+      locations: locationRes.data
     },
     revalidate: 1,
   }

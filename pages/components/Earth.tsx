@@ -12,24 +12,11 @@ import Pin from './Pin';
 
 type EarthProps = {
   meshProps?: JSX.IntrinsicElements['mesh'];
+  locations: any;
   changePinClick: (pin:string) => void;
 }
 
-const Earth = ({ meshProps, changePinClick } :EarthProps) => {
-  const pins = [
-    {
-      location: 'New Zealand',
-      lat: -40.677298,
-      lng: -117.177247
-      // -42.677298, -118.177247
-    },
-    {
-      location: 'London',
-      lat: 51.576337,
-      lng: 66.534927
-      // 51.076337, 62.534927
-    }
-  ]
+const Earth = ({ meshProps, locations, changePinClick } :EarthProps) => {
   // ==> Create the planet
   const earthUniform = useLoader(TextureLoader, '/images/physical-world-map-10k.webp');
   const earth = useRef<THREE.Mesh>(null!)
@@ -65,9 +52,9 @@ const Earth = ({ meshProps, changePinClick } :EarthProps) => {
           map={earthUniform}
         />
         {
-          pins.map((pin) => {
+          locations.map((pin:any, i:number) => {
             return (
-              <Pin pinData={pin} changePinClick={changePinClick}/>
+              <Pin key={i} pinData={pin} changePinClick={changePinClick}/>
             )
           })
         }

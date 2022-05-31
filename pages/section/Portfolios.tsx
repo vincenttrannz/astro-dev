@@ -6,9 +6,11 @@ import AOSComp from '../components/partials/AOSComp';
 import { OrbitControls } from "@react-three/drei";
 import Earth from '../components/Earth';
 
-// type Props = {}
+type PorfolioProps = {
+  locations: any;
+}
 
-const Portfolios = () => {
+const Portfolios = ({ locations }:PorfolioProps) => {
   // const selectedPin = useLocalObservable(() => ({
   //   pin: "all",
   //   changePin(pin:string) {
@@ -43,7 +45,7 @@ const Portfolios = () => {
                 enablePan={false}
                 screenSpacePanning={false}
               />
-              <Earth changePinClick={ChangePin}/>
+              <Earth locations={locations} changePinClick={ChangePin}/>
             </Canvas>
           </div>
         </div>
