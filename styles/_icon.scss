@@ -1,0 +1,21 @@
+@mixin FaIconSize($width, $height, $bgColor, $textColor) {
+  width: $width;
+  height: $height;
+  background: $bgColor;
+  color: $textColor;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 20px;
+}
+
+.fa-icon {
+  &-default {
+    @include FaIconSize(60px, 60px, #000, #fff);
+    &--lg {
+      @include FaIconSize(90px, 90px, #000, #fff);
+    }
+  }
+}

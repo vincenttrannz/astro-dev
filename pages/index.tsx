@@ -11,6 +11,7 @@ import AboutMe from './section/AboutMe';
 import Skills from './section/Skills';
 import ImagesSlider from './section/ImagesSlider';
 import Portfolios from './section/Portfolios';
+import Contact from './section/Contact';
 // Import types
 import { Photo, Homepage } from '../types/type'
 
@@ -43,6 +44,7 @@ const Home: NextPage<HomepageProps> = ({ photos, homepage, locations }) => {
       <Skills skills={getStrapiData(homepage).Skills}/>
       <ImagesSlider photos={photos}/>
       <Portfolios locations={locations}/>
+      <Contact/>
     </>
   );
 };
