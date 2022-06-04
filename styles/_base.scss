@@ -22,6 +22,12 @@ h1, h2, h3, h4, h5 {
   line-height: 1.75;
 }
 
+a {
+  &:hover {
+    filter: brightness(80%);
+  }
+}
+
 nav {
   position: fixed;
   top: 0;
@@ -112,9 +118,6 @@ footer p {
   margin-top: 20px;
 }
 
-.site-button:focus {
-  outline: 0;
-}
 
 .nav-menu li a:focus {
   color: #000;
@@ -128,11 +131,6 @@ footer p {
 
 input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0px 1000px white inset;
-}
-
-.form-inp.reqError,
-.contact-form textarea.reqError {
-  border-color: #f00;
 }
 
 .content {

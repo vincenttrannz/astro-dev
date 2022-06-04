@@ -40,6 +40,7 @@
     "eslint-config-next": "12.1.5",
     "gsap": "^3.10.4",
     "jquery": "^3.6.0",
+    "react-bootstrap": "^2.4.0",
     "react-image-lightbox": "^5.1.4",
     "react-markdown": "^8.0.3",
     "react-slick": "^0.29.0",

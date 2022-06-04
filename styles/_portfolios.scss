@@ -1,6 +1,15 @@
 .portfolios {
   &__container {
     display: grid;
-    grid-template-columns: 35% 65%;
+    grid-template-columns: 65% 35%;
+  }
+}
+
+@media (max-width: $tablet-screen-size) {
+  .portfolios {
+    &__container {
+      display: flex;
+      flex-direction: column;
+    }
   }
 }

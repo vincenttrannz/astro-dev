@@ -1248,11 +1248,6 @@
   content: url(../../public/assets/angle-left-hover.png);
 }
 
-.portfolio .site-button {
-  margin: 0 auto 60px;
-  display: table;
-}
-
 .portfolio_filter {
   text-align: center;
   padding-top: 15px;
@@ -1631,11 +1626,6 @@ video.background-video {
   transition: linear 0.1s;
 } */
 
-.blog .site-button {
-  margin: 0 auto 60px;
-  display: table;
-}
-
 .blog-single h1 {
   font-size: 32px;
   color: #000;
@@ -1871,37 +1861,9 @@ ul.post-comment .no-comment::after {
   margin-top: 60px;
 }
 
-.contact-form .site-button {
-  margin: auto;
-  margin-top: 30px;
-  display: block;
-}
-
 .button {
   text-align: center;
   padding: 45px 0;
-}
-
-.site-button {
-  padding: 10px 50px;
-  font-size: 12px;
-  background: none;
-  border: 2px solid;
-  border-radius: 50px;
-  -moz-border-radius: 50px;
-  -webkit-border-radius: 50px;
-  transition: all ease 0.3s;
-}
-
-a.site-button {
-  border: 2px solid #000;
-  color: #000;
-}
-
-.site-button:hover {
-  background: #000;
-  color: #fff;
-  transition: all ease 0.3s;
 }
 
 /*------------------------ 8 Responsive ------------------------*/

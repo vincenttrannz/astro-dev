@@ -42,8 +42,8 @@ const Home: NextPage<HomepageProps> = ({ photos, homepage, locations }) => {
         aboutDescription={homepage.attributes.AboutSectionDescription}
       />
       <Skills skills={getStrapiData(homepage).Skills}/>
-      <ImagesSlider photos={photos}/>
       <Portfolios locations={locations}/>
+      <ImagesSlider photos={photos}/>
       <Contact/>
     </>
   );

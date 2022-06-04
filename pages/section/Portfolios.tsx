@@ -29,11 +29,7 @@ const Portfolios = ({ locations }:PorfolioProps) => {
       <AOSComp className='container position-relative py-6'>
         <div className='d-flex flex-column justify-content-center align-items-center'>
           <h2 className='font--gothic fs-1 m-0'>PORTFOLIOS</h2>
-          <div className='portfolios__container w-100'>
-            <div className='portfolios__slider'>
-              <h3>Projects</h3>
-              <p>Check pin: { selectedPin }</p>
-            </div>
+          <div className='portfolios__container w-100 mt-4'>
             {/* <Planet/> */}
             <Canvas className='d-flex w-100 justify-content-center align-items-center' id='earth-scene'>
               <ambientLight color={0xdbdbdb}/>
@@ -47,6 +43,10 @@ const Portfolios = ({ locations }:PorfolioProps) => {
               />
               <Earth locations={locations} changePinClick={ChangePin}/>
             </Canvas>
+            <div className='portfolios__slider'>
+              <h3>Projects</h3>
+              <p>Check pin: { selectedPin }</p>
+            </div>
           </div>
         </div>
       </AOSComp>

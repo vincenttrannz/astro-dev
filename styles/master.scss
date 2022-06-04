@@ -18,15 +18,17 @@
 
 // New styles
 @import
+'./variables',
 './fontsheet',
 './base',
 './space-scene',
 './planet-scene',
 './meteor',
-'./variables',
 './skills-container',
 './slider',
 './portfolios',
 './contact',
-'./icon'
+'./icon',
+'./form',
+'./button'
 ;

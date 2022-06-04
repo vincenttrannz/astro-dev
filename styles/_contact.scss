@@ -4,7 +4,21 @@
     grid-template-columns: repeat(3, 1fr);
     justify-items: center;
     &__item {
-      
+      // &:first-child {
+      //   justify-self: flex-end;
+      // }
+      // &:last-child {
+      //   justify-self: flex-start;
+      // }
+    }
+  }
+}
+
+@media (max-width: $mobile-screen-size) {
+  .contact {
+    &__information {
+      grid-template-columns: 1fr;
+      gap: 2rem;
     }
   }
 }

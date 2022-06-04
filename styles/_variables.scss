@@ -1,15 +1,22 @@
 /*=====================================
 =            VARIABLES SCSS           =
 =======================================*/
+
+// Custom color sets
 $black: #030303;
 $white: #fff;
-$grey: #5a5a5a;
+$grey: #5f5f5f;
 $black-bg-color: #14151C;
+$form-field-border-color: #4D5261;
+$form-field-border-color--focus: #3275c7;
+$form-field-bg-color: #171B1E50;
+$form-field-bg-color--focus: #4795f415;
 
 $theme-colors: (
   'black': $black,
   'white': $white,
-  'grey': $grey
+  'grey': $grey,
+  'main': $grey
 );
 
 // Project breakpoints
@@ -118,6 +125,7 @@ $spacers: (
 $font-size-root:              null;
 $font-size-base:              1rem; // Assumes the browser default, typically `16px`
 $font-size-sm:                $font-size-base * .875;
+$font-size-xs:                $font-size-base * .675;
 $font-size-lg:                $font-size-base * 1.25;
 // Heading size
 $h1-font-size:                $font-size-base * 3;
@@ -135,8 +143,28 @@ $font-sizes: (
   5: $h5-font-size,
   6: $h6-font-size,
   sm: $font-size-sm,
+  xs: $font-size-xs,
   lg: $font-size-lg
 );
+
+// 5. Form field
+$input-border-radius: 8px;
+$input-padding-y: 0.85rem;
+$input-padding-x: 0.85rem;
+$input-border-color: $form-field-border-color;
+$input-border-width: 2px;
+$input-bg: $form-field-bg-color;
+$input-color: $white;
+$input-placeholder-color: $white;
+//  ==> Focus state
+$input-focus-bg: $form-field-bg-color--focus;
+$input-focus-box-shadow: 0 0 8px $grey;
+
+// 6. Button
+$btn-border-radius: 48px;
+$btn-padding-x: 2rem;
+$btn-padding-y: 0.5rem;
+$btn-font-size: 0.75rem;
 
 /* import bootstrap to set changes */
 @import '~bootstrap/scss/bootstrap';

@@ -1,7 +1,11 @@
-@mixin FaIconSize($width, $height, $bgColor, $textColor) {
+$icon-size-default: 60px;
+$icon-bg-color: linear-gradient(130deg, rgba(18,18,18,0.2) 30%, rgba(59,59,59,0.2) 75%, rgba(84,84,84,0.2) 100%);
+
+@mixin FaIconCustom($width, $height, $bgColor, $textColor, $boxShadownSize) {
   width: $width;
   height: $height;
   background: $bgColor;
+  box-shadow: 0 0 $boxShadownSize #5f5f5f;
   color: $textColor;
   display: flex;
   flex-direction: column;
@@ -13,9 +17,16 @@
 
 .fa-icon {
   &-default {
-    @include FaIconSize(60px, 60px, #000, #fff);
-    &--lg {
-      @include FaIconSize(90px, 90px, #000, #fff);
+    @include FaIconCustom($icon-size-default, $icon-size-default, $icon-bg-color, #fff, 8px);
+    &--size {
+      &-lg {
+        width: $icon-size-default * 1.5;
+        height: $icon-size-default * 1.5;
+      }
+      &-xl {
+        width: $icon-size-default * 2;
+        height: $icon-size-default * 2;
+      }
     }
   }
 }
