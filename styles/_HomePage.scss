@@ -1,0 +1,37 @@
+// Landing top section
+.landing {
+  background: #000 top center;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__container {
+    h1 {
+      font-family: "Astrohead", sans-serif;
+      font-weight: normal;
+      transform: scale(1, 1.15);
+      font-size: max(26px, min(5vw, 70px));
+      text-shadow: 0 0 10px;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    .astro-img-container {
+      position: relative;
+      height: max(200px, min(calc(10vw + 10vh), 300px));
+    }
+  }
+  .arrow-down {
+    color: #fff;
+    font-size: 40px;
+    padding-top: 1rem;
+    display: inline-block;
+    transition: all 0.3s ease;
+  }
+  
+  .bounce {
+    border-radius: 50%;
+    animation: bounce 2s infinite;
+  }
+}

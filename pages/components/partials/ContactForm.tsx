@@ -10,9 +10,25 @@ const ContactForm = (props: Props) => {
     name: ''
   })
 
+  async function handleOnSubmit(e:any) {
+    e.preventDefault();
+    const formData:any = {};
+    Array.from(e.currentTarget.elements).forEach((field:any) => {
+      if ( !field.name ) return;
+      formData[field.name] = field.value;
+    });
+  
+    await fetch('/api/email', {
+      method: 'POST',
+      body: JSON.stringify(formData)
+    });
+  }
+
   return (
     <form
       className="col-md-12"
+      method='POST'
+      onSubmit={handleOnSubmit}
       >
         <div className="row">
           <div className="col-md-6 px-0">
@@ -37,8 +53,8 @@ const ContactForm = (props: Props) => {
           </div>
           <div className="col-md-12 mt-2 px-0">
             <textarea
-              name="text"
-              id="text"
+              name="message"
+              id="message"
               style={{ minHeight: '150px' }}
               className="form-control"
               placeholder="Message"

@@ -672,16 +672,6 @@
   position: relative;
 }
 
-.home-content h1 {
-  font-family: "Astrohead", sans-serif;
-  font-weight: normal;
-  transform: scale(1, 1.15);
-  font-size: 70px;
-  text-shadow: 0 0 10px;
-  color: #fff;
-  margin-bottom: 20px;
-}
-
 /* .home:before {
   content: "";
   position: absolute;
@@ -711,76 +701,6 @@
 .social a:hover {
   transition: all ease 0.3s;
   opacity: 0.5;
-}
-
-.home-down {
-  color: #fff;
-  font-size: 40px;
-  padding-top: 40px;
-  display: inline-block;
-  transition: all 0.3s ease;
-}
-
-.home-down:hover {
-  color: #fff;
-  transition: all 0.3s ease;
-}
-
-.home-down:focus {
-  color: #fff;
-}
-
-/* arrow css3 animation */
-
-@-webkit-keyframes bounce {
-  0%,
-  100% {
-    -webkit-transform: translateY(0);
-  }
-  50% {
-    -webkit-transform: translateY(-20px);
-  }
-}
-
-@-moz-keyframes bounce {
-  0%,
-  100% {
-    -moz-transform: translateY(0);
-  }
-  50% {
-    -moz-transform: translateY(-20px);
-  }
-}
-
-@-o-keyframes bounce {
-  0%,
-  100% {
-    -o-transform: translateY(0);
-  }
-  50% {
-    -o-transform: translateY(-20px);
-  }
-}
-
-@keyframes bounce {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-}
-
-.bounce {
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  border-radius: 50%;
-  animation: bounce 2s infinite;
-  -webkit-animation: bounce 2s infinite;
-  -moz-animation: bounce 2s infinite;
-  -o-animation: bounce 2s infinite;
 }
 
 .diagonal {

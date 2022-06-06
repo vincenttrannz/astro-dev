@@ -1,0 +1,11 @@
+/* arrow css3 animation */
+// 1. Bouncing scroll down arrow
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}

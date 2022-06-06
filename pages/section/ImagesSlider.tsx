@@ -80,9 +80,10 @@ const ImagesSlider: React.FC<PhotoProps> = ({ photos }) => {
         AOSOffset="200"
         AOSDuration="1000"
         AOSRepeat={false}
-        className="container py-9"
+        className="container d-flex flex-column justify-content-center align-items-center py-6"
       >
-        <div className="slider w-100">
+        <h2 className='font--gothic fs-1 m-0'>GALLERY</h2>
+        <div className="slider mt-6 w-100">
           <div className="slider__container w-100">
             <Slider {...settings} className="pb-2">
               {

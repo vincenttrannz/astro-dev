@@ -26,21 +26,21 @@ const Home: NextPage<HomepageProps> = ({ photos, homepage, locations }) => {
   console.log("Location", locations)
   return (
     <>
-      <div className="home" id="home">
-        <div className="home-content">
-          <TypeText typetexts={getStrapiData(homepage).TypeTexts} />
-          <Social />
+      <div className="landing" id="home">
+        <div className="landing__container position-relative d-flex flex-column justify-content-center align-items-center">
+          <TypeText className="m-0" typetexts={getStrapiData(homepage).TypeTexts} />
+          {/* <Social /> */}
+          <AboutMe
+            aboutImage={getStrapiMedia(getStrapiData(homepage).AboutSectionImage)}
+            aboutDescription={homepage.attributes.AboutSectionDescription}
+          />
           <Link href="#about">
-            <a onClick={scrollDown} className="home-down bounce">
+            <a onClick={scrollDown} className="arrow-down bounce">
               <i data-id="#about" className="fa fa-angle-down"></i>
             </a>
           </Link>
         </div>
       </div>
-      <AboutMe
-        aboutImage={getStrapiMedia(getStrapiData(homepage).AboutSectionImage)}
-        aboutDescription={homepage.attributes.AboutSectionDescription}
-      />
       <Skills skills={getStrapiData(homepage).Skills}/>
       <Portfolios locations={locations}/>
       <ImagesSlider photos={photos}/>

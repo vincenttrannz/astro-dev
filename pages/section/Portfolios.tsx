@@ -26,7 +26,7 @@ const Portfolios = ({ locations }:PorfolioProps) => {
   }
   return (
     <>
-      <AOSComp className='container position-relative py-6'>
+      <AOSComp className='container position-relative py-6 my-6'>
         <div className='d-flex flex-column justify-content-center align-items-center'>
           <h2 className='font--gothic fs-1 m-0'>PORTFOLIOS</h2>
           <div className='portfolios__container w-100 mt-4'>

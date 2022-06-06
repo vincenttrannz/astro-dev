@@ -20,7 +20,7 @@ const Contact = (props: Props) => {
   const contactDataClassNames = cn("contact__information__item d-flex flex-column align-items-center");
 
   return (
-    <div className='container position-relative py-6'>
+    <div className='container position-relative py-9'>
       <div className='d-flex flex-column justify-content-center align-items-center'>
         <h2 className='font--gothic fs-1'>GET IN TOUCH</h2>
         <p>Thanks for visiting my page. Please leave me a message</p>

@@ -21,7 +21,7 @@ const Skills: React.FC<SkillProps> = ({ skills }) => {
       AOSDuration="1000" 
       AOSRepeat={false}
       AOSOffset="200"
-      className="container skills-container"
+      className="container skills-container py-6"
     >
       {skills.map((skill) => {
         return (

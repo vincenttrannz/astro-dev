@@ -4,10 +4,11 @@ import Typed from 'typed.js'
 import { Homepage } from '../../types/type'
 
 interface TypeTextProp {
+  className?: string;
   typetexts: Homepage['attributes']['TypeTexts'];
 }
 
-const TypeText: React.FC<TypeTextProp> = ({ typetexts }) => {
+const TypeText: React.FC<TypeTextProp> = ({ typetexts, className }) => {
   const texts = typetexts.map(text => text.Text);  
   const TextContainer = useRef<HTMLSpanElement>(null);  
   useEffect(() => {
@@ -22,7 +23,7 @@ const TypeText: React.FC<TypeTextProp> = ({ typetexts }) => {
   }, [])
 
   return (
-    <h1><span className="element" ref={TextContainer}></span></h1>
+    <h1 className={className}><span className="element" ref={TextContainer}></span></h1>
   )
 }
 
