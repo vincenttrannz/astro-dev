@@ -1,0 +1,96 @@
+$mountain-height: 25vw;
+
+@keyframes BGgradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+@keyframes borderAnim {
+  0% {
+    border-bottom-color: #007BFF;
+  }
+  20% {
+    border-bottom-color: #dadada;
+  }
+  40% {
+    border-bottom-color: #007BFF;
+  }
+  60% {
+    border-bottom-color: #dadada;
+  }
+  80% {
+    border-bottom-color: #007BFF;
+  }
+  100% {
+    border-bottom-color: #dadada;
+  }
+}
+
+@mixin BackgroundGradient {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: BGgradient 15s ease infinite;
+}
+
+.footer-bg-style {
+  @include BackgroundGradient();
+}
+
+footer {
+  .mountain-container {
+    position: relative;
+    .mountain-dim {
+      height: $mountain-height;
+      clip-path: polygon(0% 100%, 12% 82%, 24% 89%, 36% 79%, 49% 86%, 80% 75%, 100% 100%);
+    }
+    .mountain-highlight {
+      position: absolute;
+      width: 0; 
+      height: 0;
+      bottom: 0;
+      right: 0;
+      border-left: 40vw solid transparent;
+      border-right: 32vw solid transparent;
+      border-bottom: 14vw solid #111111;
+      &-border {
+        position: absolute;
+        width: 0; 
+        height: 0;
+        bottom: 0;
+        right: 0;
+        border-left: 41vw solid transparent;
+        border-right: 32vw solid transparent;
+        border-bottom: 14.5vw solid $form-field-border-color--focus;
+        animation: borderAnim 5s infinite alternate;
+        animation-timing-function: $easeInOut;
+      }
+    }
+  }
+}
+
+@media (max-width: $mobile-screen-size) {
+  footer {
+    .mountain-container {
+      .mountain-dim {
+        height: $mountain-height * 2.5;
+      }
+      .mountain-highlight {
+        border-left: 62vw solid transparent;
+        border-right: 33vw solid transparent;
+        border-bottom: 32vw solid #111111;
+        &-border {
+          border-left: 63vw solid transparent;
+          border-right: 33vw solid transparent;
+          border-bottom: 32.5vw solid $form-field-border-color--focus;
+        }
+      }
+    }
+  }
+}

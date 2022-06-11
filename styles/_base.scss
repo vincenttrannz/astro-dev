@@ -11,6 +11,7 @@ html {
 
 p, a {
   font-family: "Montserrat", sans-serif;
+  margin: 0;
   color: #f1f1f1;
   line-height: 1.75;
   letter-spacing: 0.5px;
@@ -18,6 +19,7 @@ p, a {
 
 h1, h2, h3, h4, h5 {
   font-family: "Montserrat", sans-serif;
+  margin: 0;
   color: #f1f1f1;
   line-height: 1.75;
 }
@@ -26,39 +28,6 @@ a {
   &:hover {
     filter: brightness(80%);
   }
-}
-
-nav {
-  position: fixed;
-  top: 0;
-  background: #fff;
-  z-index: 1000;
-  width: 100%;
-  padding: 30px;
-  display: none;
-  -webkit-box-shadow: -5px 10px 12px -10px rgba(201, 201, 201, 0.67);
-  -moz-box-shadow: -5px 10px 12px -10px rgba(201, 201, 201, 0.67);
-  box-shadow: -5px 10px 12px -10px rgba(201, 201, 201, 0.67);
-}
-
-.nav-menu {
-  float: right;
-  line-height: 32px;
-}
-
-nav ul li {
-  float: left;
-  margin-right: 15px;
-  font-family: "Poppins", sans-serif;
-  font-size: 1em;
-}
-
-nav ul li a {
-  color: #000;
-}
-
-nav ul li a:hover {
-  color: #afafaf;
 }
 
 .slick-next::before,
@@ -84,6 +53,13 @@ nav ul li a:hover {
   color: gray;
 }
 
+// Z-index
+.z-index {
+  &-99 {
+    z-index: 99 !important;
+  }
+}
+
 .logo {
   float: left;
 }
@@ -104,23 +80,6 @@ nav ul li a:hover {
 
 .active {
   color: #afafaf !important;
-}
-
-footer {
-  background: #000;
-  padding: 90px 0;
-  /* margin-top:90px; */
-  text-align: center;
-}
-
-footer p {
-  line-height: 20px;
-  margin-top: 20px;
-}
-
-
-.nav-menu li a:focus {
-  color: #000;
 }
 
 .ok {

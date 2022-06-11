@@ -7,12 +7,14 @@ type Props = {
   AOSDuration?: string;
   AOSRepeat?: boolean;
   className?: string;
+  id?: string;
   children: JSX.Element[] | JSX.Element;
 }
 
-const AOSComp = ({ AOSAnimation, AOSDelay, AOSOffset, AOSDuration, AOSRepeat, className, children }: Props) => {
+const AOSComp = ({ AOSAnimation, AOSDelay, AOSOffset, AOSDuration, AOSRepeat, className, id, children }: Props) => {
   return (
     <div
+      id={id}
       className={ className }
       data-aos={ AOSAnimation }
       data-aos-offset={ AOSOffset }

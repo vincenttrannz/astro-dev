@@ -8,6 +8,8 @@ import { getStrapiMedia, getStrapiData } from "../lib/fetchData";
 import NextHead from './section/NextHead'
 import SpaceScene from './components/SpaceScene'
 import MeteorRain from './components/MeteorRain'
+import Navi from './components/Navi'
+import Footer from './components/Footer'
 import AOS from 'aos';
 
 // Store Strapi Global object in context
@@ -28,9 +30,11 @@ function AstroApp({ Component, pageProps }: AppProps) {
       />
       <GlobalContext.Provider value={global.attributes}>
         <main role='main'>
+          <Navi/>
           <SpaceScene/>
           <MeteorRain/>
           <Component {...pageProps} />
+          <Footer/>
         </main>
       </GlobalContext.Provider>
     </>

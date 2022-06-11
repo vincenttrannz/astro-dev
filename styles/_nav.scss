@@ -1,0 +1,49 @@
+.nav-container {
+  position: fixed;
+  top: 0;
+  transition: all $easeInOut 0.15s;
+  background-color: rgba($form-field-border-color, $alpha: 0.1);
+  z-index: 1000;
+  width: 100%;
+  padding: 1.5rem;
+  box-shadow: 0 0 30px 0 rgba(#2e2e2e, 0.25);
+  .logo {
+    font-weight: bold;
+    font-size: 1.75rem;
+    line-height: 1;
+  }
+  &__menu {
+    display: flex;
+    line-height: 32px;
+    li {
+      font-family: "Poppins", sans-serif;
+      margin-right: 15px;
+    }
+  }
+  &:hover {
+    background-color: rgba($black-bg-color, $alpha: 0.95);
+    box-shadow: 0 0 15px 0 rgba($black-bg-color, 0.25);
+  }
+}
+
+@media (max-width: $mobile-screen-size) {
+  nav {
+    padding: 30px 15px;
+  }
+
+  .nav-menu {
+    margin-top: 60px;
+    display: none;
+    float: none;
+    width: 100%;
+  }
+
+  .nav-menu li {
+    float: none;
+    width: 100%;
+    text-align: center;
+    height: 45px;
+    border-top: 1px solid #f7f7f7;
+    line-height: 45px;
+  }
+}
