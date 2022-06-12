@@ -23,7 +23,7 @@ const Contact = (props: Props) => {
     <div className='container position-relative py-9'>
       <div className='d-flex flex-column justify-content-center align-items-center'>
         <h2 className='font--gothic fs-1'>GET IN TOUCH</h2>
-        <p>Thanks for visiting my page. Please leave me a message</p>
+        <p className='text-center'>Thanks for visiting my page. Please leave me a message</p>
       </div>
       <div className='contact__information my-4'>
         {

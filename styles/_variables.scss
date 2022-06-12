@@ -4,13 +4,14 @@
 
 // Custom color sets
 $black: #030303;
-$white: #fff;
+$white: #f2f2f2;
 $grey: #5f5f5f;
 $black-bg-color: #14151C;
 $form-field-border-color: #4D5261;
 $form-field-border-color--focus: #3275c7;
 $form-field-bg-color: #171B1E50;
 $form-field-bg-color--focus: #4795f415;
+$mirror-bg: linear-gradient(130deg, rgba(18,18,18,0.2) 30%, rgba(59,59,59,0.2) 75%, rgba(84,84,84,0.2) 100%);
 
 $theme-colors: (
   'black': $black,

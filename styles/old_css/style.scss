@@ -683,26 +683,6 @@
   z-index: 1;
 } */
 
-.social {
-  height: 30px;
-}
-
-.social a {
-  color: #fff;
-  font-size: 15px;
-  margin: 0 15px;
-  transition: all ease 0.3s;
-}
-
-.social i {
-  text-shadow: 0 0 8px;
-}
-
-.social a:hover {
-  transition: all ease 0.3s;
-  opacity: 0.5;
-}
-
 .diagonal {
   position: absolute;
   left: 0;
@@ -828,10 +808,6 @@
 .diag .home-content .home-down.bounce {
   float: left;
   padding: 50px 74px 0;
-}
-
-.social-icons a:hover {
-  font-size: 15px;
 }
 
 .fb:hover {
@@ -1858,11 +1834,6 @@ ul.post-comment .no-comment::after {
   .contact-info {
     margin-bottom: 30px;
     /* padding: 0 50px; */
-  }
-
-  .social a {
-    margin: 0 10px;
-    font-size: 12px;
   }
 
   .responsive {

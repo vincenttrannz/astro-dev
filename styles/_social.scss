@@ -1,0 +1,14 @@
+.social {
+  a {
+    color: #fff;
+    font-size: 0.75rem;
+    transition: all $easeInOut 0.3s;
+    i {
+      text-shadow: 0 0 7px;
+    }
+  }
+}
+
+@media (max-width: $mobile-screen-size) {
+
+}

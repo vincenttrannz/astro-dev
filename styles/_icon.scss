@@ -1,5 +1,4 @@
 $icon-size-default: 60px;
-$icon-bg-color: linear-gradient(130deg, rgba(18,18,18,0.2) 30%, rgba(59,59,59,0.2) 75%, rgba(84,84,84,0.2) 100%);
 
 @mixin FaIconCustom($width, $height, $bgColor, $textColor, $boxShadownSize) {
   width: $width;
@@ -17,7 +16,7 @@ $icon-bg-color: linear-gradient(130deg, rgba(18,18,18,0.2) 30%, rgba(59,59,59,0.
 
 .fa-icon {
   &-default {
-    @include FaIconCustom($icon-size-default, $icon-size-default, $icon-bg-color, #fff, 8px);
+    @include FaIconCustom($icon-size-default, $icon-size-default, $mirror-bg, #fff, 8px);
     &--size {
       &-lg {
         width: $icon-size-default * 1.5;
