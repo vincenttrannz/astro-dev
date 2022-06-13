@@ -20,6 +20,8 @@ const Portfolios = ({ locations }:PorfolioProps) => {
 
   const [selectedPin, setSelectedPin] = useState("all");
 
+  const filterTags = ['HTML', 'CSS', 'JavaScript', 'React', 'NodeJS', 'CMS', 'Website', 'Frontend'];
+
   const projects = [
     {
       id: 1,
@@ -47,6 +49,7 @@ const Portfolios = ({ locations }:PorfolioProps) => {
   const ChangePin = ( pin?:string ) => {
     setSelectedPin(pin ? pin : "all");
   }
+
   return (
     <>
       <AOSComp className='container position-relative py-6 my-6'>
@@ -66,8 +69,17 @@ const Portfolios = ({ locations }:PorfolioProps) => {
               />
               <Earth locations={locations} changePinClick={ChangePin}/>
             </Canvas>
+            {/* Filter container */}
+            <div className='portfolios__filter d-flex flex-column justify-content-center align-items-center mt-5'>
+              <h3 className='font--gothic text-white'>FILTER</h3>
+              <div className='d-flex mt-2'>
+                { 
+                  filterTags.map((tag:string) => <span key={tag} className="portfolios__tag fs-sm">{tag}</span>)
+                }
+              </div>
+            </div>
             {/* Portfolios */}
-            <div className='portfolios__showcase'>
+            <div className='portfolios__showcase mt-5'>
               <h3>Projects</h3>
               <p>Check pin: { selectedPin }</p>
               <div className='portfolios__showcase__container mt-5'>

@@ -22,3 +22,14 @@
 		background-position: 0% 50%;
 	}
 }
+
+// 3. Border color changing
+@keyframes BorderColorChanging {
+	0%, 100%{
+    border-color: $form-field-border-color;
+  }
+
+  50%{
+    border-color: $form-field-border-color--focus;
+  }
+}
