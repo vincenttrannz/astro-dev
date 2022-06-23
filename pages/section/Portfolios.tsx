@@ -26,6 +26,7 @@ const Portfolios = ({ locations }:PorfolioProps) => {
     {
       id: 1,
       title: 'Meridian - Annual Report 2020',
+      slug: 'meridian',
       thumbnail: '/images/web-blog/mer19430/mer19430-lg.jpg',
       shortDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
       tags: ['HTML', 'CSS', 'JavaScript']
@@ -33,6 +34,7 @@ const Portfolios = ({ locations }:PorfolioProps) => {
     {
       id: 2,
       title: 'Bathurst - Annual Report 2020',
+      slug: 'bathurst',
       thumbnail: '/images/web-blog/bat19413/bat19413-lg.jpg',
       shortDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
       tags: ['HTML', 'CSS', 'JavaScript']
@@ -40,6 +42,7 @@ const Portfolios = ({ locations }:PorfolioProps) => {
     {
       id: 3,
       title: 'Spacepants',
+      slug: 'spacepants',
       thumbnail: '/images/web-blog/spacepants/spacepants-lg.jpg',
       shortDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
       tags: ['HTML', 'CSS', 'JavaScript', 'React', 'NodeJS']

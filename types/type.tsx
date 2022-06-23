@@ -81,6 +81,24 @@ export type Homepage = {
   };
 };
 
+export type Projects = {
+  id: number;
+  attributes: {
+    createdAt: Date;
+    description: string;
+    location: any;
+    project_gallery: {
+      data: ImageDataType['data'][];
+    }
+    project_link: string;
+    publishedAt: Date;
+    pull_quote: string;
+    slug: string;
+    title: string
+    updatedAt: Date;
+  }
+}
+
 // Other component type
 export type SeoDataType = {
   id: number;

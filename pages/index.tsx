@@ -19,10 +19,11 @@ type HomepageProps = {
   photos: Photo[];
   homepage: Homepage;
   locations: any;
+  projects: any;
 }
 
-const Home: NextPage<HomepageProps> = ({ photos, homepage, locations }) => {
-  // console.log("Homepage data:", homepage);
+const Home: NextPage<HomepageProps> = ({ photos, homepage, locations, projects }) => {
+  console.log("Projects data:", projects);
   console.log("Location", locations)
   return (
     <>
@@ -60,18 +61,23 @@ export async function getStaticProps() {
   const locationQuery = {
     populate: "*"
   }
+  const projectsQuery = {
+    populate: "*"
+  }
 
-  const [photoRes, homepageRes, locationRes] = await Promise.all([
+  const [photoRes, homepageRes, locationRes, projectRes] = await Promise.all([
     fetchAPI('/photo-galleries', photoQuery),
     fetchAPI('/homepage', homepageQuery),
-    fetchAPI('/locations', locationQuery)
+    fetchAPI('/locations', locationQuery),
+    fetchAPI('/projects', projectsQuery)
   ]);
 
   return {
     props: {
       photos: photoRes.data,
       homepage: homepageRes.data,
-      locations: locationRes.data
+      locations: locationRes.data,
+      projects: projectRes.data
     },
     revalidate: 1,
   }

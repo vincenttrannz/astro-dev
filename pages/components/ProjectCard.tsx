@@ -8,7 +8,7 @@ type ProjectCardProps = {
 
 const ProjectCard = ({ projectData }: ProjectCardProps) => {
   return (
-    <Link href="#">
+    <Link href={projectData.slug}>
       <a className="portfolios__showcase__card">
         <p className="fs-lg fw-bold">{projectData.title}</p>
         <div className="portfolios__showcase__card__img-container">

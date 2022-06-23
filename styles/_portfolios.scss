@@ -21,8 +21,9 @@
   &__showcase {
     &__container {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 6rem;
+      grid-template-columns: repeat(3, 400px);
+      justify-content: center;
+      gap: max(2rem, min(5vw, 6rem));
       width: 100%;
     }
     &__card {
@@ -38,14 +39,13 @@
       background: $mirror-bg;
       background-size: 400% 400%;
       animation: BGgradient 10s $easeInOut infinite;
-      box-shadow: 0 0 8px 0 #5F5F5F;
       transition: all $easeInOut 0.2s;
       &__img-container {
         position: relative;
-        border: 4px $form-field-border-color;
-        border-style: groove;
+        border: 2px $form-field-border-color;
+        border-style: solid;
         clip-path: polygon(20% 0%, 100% 0, 100% 80%, 80% 100%, 0 100%, 0% 20%);
-        height: 300px;
+        height: max(250px, min(18vw, 300px));
         transition: border-color $easeInOut 0.2s;
       }
       &:hover {
@@ -57,6 +57,17 @@
           animation: BorderColorChanging 1.5s $easeInOut infinite;
           border-color: $form-field-border-color--focus;
         }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $large-screen-size) {
+  .portfolios {
+    &__showcase {
+      &__container {
+        grid-template-columns: repeat(2, 400px);
+        justify-content: center;
       }
     }
   }
