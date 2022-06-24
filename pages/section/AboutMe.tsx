@@ -11,7 +11,6 @@ interface AboutMe {
 }
 
 const AboutMe: React.FC<AboutMe> = ({ aboutDescription, aboutImage }) => {
-  console.log(aboutDescription);
   return (
     <div className="overflow-hidden" id="about">
       <div className="container mt-4">

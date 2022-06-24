@@ -5,6 +5,7 @@ export default function Document() {
   return (
     <Html>
       <Head>
+        <base href="/" />
         {/* Google Web fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com"/>
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet"/>

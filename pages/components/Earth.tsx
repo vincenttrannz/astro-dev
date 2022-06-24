@@ -9,10 +9,12 @@ import atmosphereVertexShader from '../../public/shaders/atmosphereVertex.glsl'
 import atmosphereFragmentShader from '../../public/shaders/atmosphereFragment.glsl'
 // Import Pin
 import Pin from './Pin';
+//  Import types
+import { Location } from '../../types/type'
 
 type EarthProps = {
   meshProps?: JSX.IntrinsicElements['mesh'];
-  locations: any;
+  locations: Location[];
   changePinClick: (pin:string) => void;
 }
 

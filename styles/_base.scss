@@ -53,6 +53,11 @@ a {
   color: gray;
 }
 
+// Util class
+.no-hover {
+  pointer-events: none !important;
+}
+
 // Z-index
 .z-index {
   &-99 {

@@ -13,18 +13,19 @@ import ImagesSlider from './section/ImagesSlider';
 import Portfolios from './section/Portfolios';
 import Contact from './section/Contact';
 // Import types
-import { Photo, Homepage } from '../types/type'
+import { Photo, Homepage, Project, Location, Technology } from '../types/type'
 
 type HomepageProps = {
   photos: Photo[];
   homepage: Homepage;
-  locations: any;
-  projects: any;
+  locations: Location[];
+  projects: Project[];
+  technologies: Technology[];
 }
 
-const Home: NextPage<HomepageProps> = ({ photos, homepage, locations, projects }) => {
+const Home: NextPage<HomepageProps> = ({ photos, homepage, locations, projects, technologies }) => {
   console.log("Projects data:", projects);
-  console.log("Location", locations)
+  console.log("Technologies:", technologies);
   return (
     <>
       <div className="landing" id="home">
@@ -43,7 +44,7 @@ const Home: NextPage<HomepageProps> = ({ photos, homepage, locations, projects }
         </div>
       </div>
       <Skills skills={getStrapiData(homepage).Skills}/>
-      <Portfolios locations={locations}/>
+      <Portfolios projects={projects} technologies={technologies} locations={locations}/>
       <ImagesSlider photos={photos}/>
       <Contact/>
     </>
@@ -64,12 +65,16 @@ export async function getStaticProps() {
   const projectsQuery = {
     populate: "*"
   }
+  const technologiesQuery = {
+    populate: "*"
+  }
 
-  const [photoRes, homepageRes, locationRes, projectRes] = await Promise.all([
+  const [photoRes, homepageRes, locationRes, projectRes, technologiesRes] = await Promise.all([
     fetchAPI('/photo-galleries', photoQuery),
     fetchAPI('/homepage', homepageQuery),
     fetchAPI('/locations', locationQuery),
-    fetchAPI('/projects', projectsQuery)
+    fetchAPI('/projects', projectsQuery),
+    fetchAPI('/technologies', technologiesQuery)
   ]);
 
   return {
@@ -77,7 +82,8 @@ export async function getStaticProps() {
       photos: photoRes.data,
       homepage: homepageRes.data,
       locations: locationRes.data,
-      projects: projectRes.data
+      projects: projectRes.data,
+      technologies: technologiesRes.data
     },
     revalidate: 1,
   }

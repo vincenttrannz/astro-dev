@@ -81,20 +81,51 @@ export type Homepage = {
   };
 };
 
-export type Projects = {
+export type Project = {
   id: number;
   attributes: {
     createdAt: Date;
     description: string;
-    location: any;
+    location: Location;
+    technologies: {
+      data: Technology[];
+    };
     project_gallery: {
       data: ImageDataType['data'][];
-    }
+    };
+    project_thumbnail: ImageDataType;
     project_link: string;
     publishedAt: Date;
     pull_quote: string;
     slug: string;
     title: string
+    updatedAt: Date;
+  }
+}
+
+export type Location = {
+  id: number;
+  attributes: {
+    LocationColor: string;
+    LocationLatitude: string;
+    LocationLongitude: string;
+    LocationName: string;
+    createdAt: Date;
+    projects: {
+      data: Project[];
+    }
+    publishedAt: Date;
+    updatedAt: Date;
+  }
+}
+
+export type Technology = {
+  id: number;
+  attributes: {
+    TechIcon: ImageDataType;
+    TechName: string;
+    createdAt: Date;
+    publishedAt: Date;
     updatedAt: Date;
   }
 }

@@ -1,11 +1,13 @@
 import React, { useRef, useEffect, useState, useCallback, createContext } from 'react'
 // import * as THREE from 'three'
 import { useFrame, useLoader } from '@react-three/fiber'
+// Import types
+import { Location } from '../../types/type'
 
 type PinProps = {
   props?: JSX.IntrinsicElements['mesh'];
   changePinClick: (pin:string) => void;
-  pinData: any;
+  pinData: Location;
 }
 
 const Pin = ({ props, changePinClick, pinData }: PinProps) => {

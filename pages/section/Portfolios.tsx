@@ -5,12 +5,16 @@ import Image from 'next/image'
 import AOSComp from '../components/partials/AOSComp'
 import ProjectCard from '../components/ProjectCard'
 import Earth from '../components/Earth';
+// Import types
+import { Project, Location, Technology } from '../../types/type'
 
 type PorfolioProps = {
-  locations: any;
+  locations: Location[];
+  projects: Project[];
+  technologies: Technology[];
 }
 
-const Portfolios = ({ locations }:PorfolioProps) => {
+const Portfolios = ({ locations, projects, technologies }:PorfolioProps) => {
   // const selectedPin = useLocalObservable(() => ({
   //   pin: "all",
   //   changePin(pin:string) {
@@ -20,34 +24,7 @@ const Portfolios = ({ locations }:PorfolioProps) => {
 
   const [selectedPin, setSelectedPin] = useState("all");
 
-  const filterTags = ['HTML', 'CSS', 'JavaScript', 'React', 'NodeJS', 'CMS', 'Website', 'Frontend'];
-
-  const projects = [
-    {
-      id: 1,
-      title: 'Meridian - Annual Report 2020',
-      slug: 'meridian',
-      thumbnail: '/images/web-blog/mer19430/mer19430-lg.jpg',
-      shortDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-      tags: ['HTML', 'CSS', 'JavaScript']
-    },
-    {
-      id: 2,
-      title: 'Bathurst - Annual Report 2020',
-      slug: 'bathurst',
-      thumbnail: '/images/web-blog/bat19413/bat19413-lg.jpg',
-      shortDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-      tags: ['HTML', 'CSS', 'JavaScript']
-    },
-    {
-      id: 3,
-      title: 'Spacepants',
-      slug: 'spacepants',
-      thumbnail: '/images/web-blog/spacepants/spacepants-lg.jpg',
-      shortDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-      tags: ['HTML', 'CSS', 'JavaScript', 'React', 'NodeJS']
-    },
-  ];
+  const filterTags = technologies.map(tech => tech.attributes.TechName);
 
   const ChangePin = ( pin?:string ) => {
     setSelectedPin(pin ? pin : "all");
