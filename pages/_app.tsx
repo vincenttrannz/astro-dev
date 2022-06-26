@@ -2,6 +2,7 @@ import '../styles/master.scss'
 import App from "next/app";
 import type { AppProps } from 'next/app'
 import React, { useEffect } from 'react'
+import Router from 'next/router';
 import { createContext } from "react";
 import { fetchAPI } from "../lib/api";
 import { getStrapiMedia, getStrapiData } from "../lib/fetchData";
@@ -18,6 +19,13 @@ export const GlobalContext = createContext({});
 function AstroApp({ Component, pageProps }: AppProps) {
   const { global } = pageProps;
   console.log("App global data:", global);
+  Router.events.on('routeChangeComplete', () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant",
+    });
+  })
   useEffect(() => {
     AOS.init()
   }, [])

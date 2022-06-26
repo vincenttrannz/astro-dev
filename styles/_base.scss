@@ -58,6 +58,12 @@ a {
   pointer-events: none !important;
 }
 
+.text-shadow {
+  &--sm {
+    text-shadow: 0 0 1.5rem $form-field-border-color;
+  }
+}
+
 // Z-index
 .z-index {
   &-99 {

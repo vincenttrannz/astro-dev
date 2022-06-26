@@ -1,7 +1,8 @@
 // Tablet view for image and slider
 .tablet {
-  border: 48px solid #252525;
-  border-radius: 48px;
+  border: max(12px, min(3vw, 48px)) solid #252525;
+  padding-top: 40%;
+  border-radius: max(12px, min(3vw, 48px));
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,6 +12,54 @@
     border-radius: 50%;
     width: 24px;
     height: 24px;
+    top: 0;
     transform: translateY(-34px);
+  }
+}
+
+// Horizontal style
+.hr-style {
+  &--1 {
+    width: max(100px, min(75%, 750px));
+    height: 1px;
+    background-color: $form-field-border-color;
+    &:after {
+      content: '';
+      position: relative;
+      display: inline-block;
+      left: 48.75%;
+      transform: rotate(45deg);
+      top: -9px;
+      height: 15px;
+      width: 15px;
+      border: 2px solid $form-field-border-color--focus;
+      background-color: #1c1c1c;
+    }
+  }
+}
+
+// Project description content
+.project {
+  &__description-container {
+    &::first-letter {
+      display: block;
+      font-family: 'Times New Roman', Times, serif;
+      font-weight: 500;
+      color: $form-field-border-color--focus;
+      text-shadow: 0 0 10px $form-field-border-color;
+      position: relative;
+      top: 0;
+      float: left;
+      line-height: 80%;
+      margin: 0 1rem 0 0;
+      font-size: 6.75rem;
+      background-clip: text;
+    }
+    p {
+      &:first-child {
+        font-size: 1.875rem;
+        line-height: 1.5;
+      }
+    }
   }
 }

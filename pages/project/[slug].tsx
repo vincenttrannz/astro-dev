@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useRef, useEffect } from 'react'
 import type { NextPage } from 'next';
 import { fetchAPI } from "../../lib/api";
-import Image from 'next/image'
+import Image from 'next/image';
+import Link from 'next/link';
 import { getStrapiMedia } from "../../lib/fetchData";
+import Typed from 'typed.js';
+// Import components
+import AOSComp from '../components/partials/AOSComp';
 // Import types
 import { Project } from '../../types/type'
 
@@ -12,21 +16,72 @@ type ProjectProps = {
 
 const ProjectPage: NextPage<ProjectProps> = ({ project }) => {
   console.log('The project:', project);
+  // Handle project title
   const projectTitle = project.attributes.title;
+  const TitleContainer = useRef<HTMLSpanElement>(null);
+  useEffect(() => {
+    const options = {
+      strings: [projectTitle],
+      showCursor: false,
+      typeSpeed: 50,
+      loop: false,
+    };
+    new Typed(TitleContainer.current!, options)
+  }, [])
+  const projectPullQuote = project.attributes.pull_quote;
+  const projectDescription = project.attributes.description;
   const projectThumbnail = getStrapiMedia(project.attributes.project_thumbnail);
   return (
-    <div className='mt-8 container position-relative'>
+    <div className='container position-relative'>
       <div className='d-flex flex-column'>
-        <h1>{projectTitle}</h1>
-        <div style={{ height: '860px' }} className='tablet position-relative'>
-          <div className='tablet__camera z-index-99'></div>
-          <Image
-            priority
-            objectFit='cover'
-            layout='fill'
-            src={projectThumbnail}
-          />
+        <div className='landing flex-column'>
+          <h1><span className="element text-shadow--sm" ref={TitleContainer}></span></h1>
+          <AOSComp
+            className='w-100 d-flex justify-content-center'
+            AOSAnimation='zoom-in'
+            AOSDuration='2500'
+            AOSRepeat={false}
+          >
+            <div className='hr-style--1 mt-2 mb-3'></div>
+          </AOSComp>
+          <AOSComp
+            className='w-50 text-center'
+            AOSAnimation='fade-up'
+            AOSDuration='2000'
+            AOSRepeat={false}
+          >
+            <p>{projectPullQuote}</p>
+          </AOSComp>
+          <AOSComp
+            AOSAnimation='zoom-out'
+            AOSDuration='2000'
+            AOSDelay='2000'
+            AOSRepeat={false}
+          >
+            <Link href="#about">
+              <a className="arrow-down bounce">
+                <i data-id="#about" className="fa fa-angle-down"></i>
+              </a>
+            </Link>
+          </AOSComp>
         </div>
+        <AOSComp
+          AOSAnimation='fade-up'
+          AOSDuration='2000'
+          AOSOffset='200'
+          AOSRepeat={true}
+        >
+          <div className='tablet position-relative w-75 mx-auto'>
+            <div className='tablet__camera z-index-99'></div>
+            <Image
+              priority
+              objectFit='cover'
+              layout='fill'
+              src={projectThumbnail}
+            />
+          </div>
+          <div className='project__description-container w-75 my-4 mx-auto' dangerouslySetInnerHTML={{__html: projectDescription}}></div>
+        </AOSComp>
       </div>
     </div>
   )
