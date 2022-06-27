@@ -9,7 +9,7 @@ html {
   height: 100%;
 }
 
-p, a {
+p, a, ul, li {
   font-family: "Montserrat", sans-serif;
   margin: 0;
   color: #f1f1f1;
@@ -56,6 +56,15 @@ a {
 // Util class
 .no-hover {
   pointer-events: none !important;
+}
+
+.filter {
+  &-invert {
+    filter: invert(1);
+  }
+  &-drop-shadow {
+    filter: drop-shadow(0 0 4px $form-field-border-color);
+  }
 }
 
 .text-shadow {

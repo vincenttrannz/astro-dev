@@ -95,6 +95,7 @@ export type Project = {
     };
     project_thumbnail: ImageDataType;
     project_link: string;
+    project_highlights: string;
     publishedAt: Date;
     pull_quote: string;
     slug: string;

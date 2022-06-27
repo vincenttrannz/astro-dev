@@ -10,6 +10,10 @@ const nextConfig = {
       {
         test: /\.(glsl|vs|fs)$/,
         loader: 'ts-shader-loader'
+      },
+      {
+        test: /\.svg$/,
+        use: ["@svgr/webpack"]
       }
     );
     return config;
