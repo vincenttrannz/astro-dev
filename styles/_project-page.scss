@@ -1,7 +1,7 @@
 // Tablet view for image and slider
 .tablet {
   border: max(12px, min(3vw, 48px)) solid #252525;
-  padding-top: 40%;
+  padding-top: max(300px, min(50%, 720px));
   border-radius: max(12px, min(3vw, 48px));
   display: flex;
   flex-direction: column;
@@ -38,7 +38,7 @@
   }
 }
 
-// Project description content
+// Project 
 .project {
   &__description-container {
     &::first-letter {
@@ -57,9 +57,43 @@
     }
     p {
       &:first-child {
-        font-size: 1.875rem;
+        // font-size: 1.875rem;
+        font-size: max(1.35rem, min(5vw, 1.875rem));
         line-height: 1.5;
       }
+    }
+  }
+  &__gallery-container {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: max(180px, min(20vw, 200px));
+    &__image {
+      grid-column: span 2;
+      &:nth-of-type(4n+5), &:nth-of-type(5n+4) {
+        grid-column: span 3;
+      }
+    }
+  }
+}
+
+@media (max-width: $tablet-screen-size) {
+  .project {
+    &__gallery-container {
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: max(220px, min(18vw, 250px));
+      &__image {
+        grid-column: span 1 !important;
+      }
+    }
+  }
+}
+
+@media (max-width: $mobile-screen-size) {
+  .project {
+    &__gallery-container {
+      grid-template-columns: 1fr;
+      grid-auto-rows: max(150px, min(56vw, 360px));
     }
   }
 }

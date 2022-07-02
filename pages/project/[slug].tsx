@@ -3,7 +3,7 @@ import type { NextPage } from 'next';
 import { fetchAPI } from "../../lib/api";
 import Image from 'next/image';
 import Link from 'next/link';
-import { getStrapiMedia } from "../../lib/fetchData";
+import { getStrapiMedia, getSingleStrapiMedia } from "../../lib/fetchData";
 import Typed from 'typed.js';
 // Import components
 import AOSComp from '../components/partials/AOSComp';
@@ -30,9 +30,11 @@ const ProjectPage: NextPage<ProjectProps> = ({ project }) => {
   }, [])
   const projectPullQuote = project.attributes.pull_quote;
   const projectDescription = project.attributes.description;
-  const projectHightlights = project.attributes.project_highlights.split(',');  
+  const projectGaleries = project.attributes.project_gallery.data.map(image => getSingleStrapiMedia(image));
+  const projectHightlights:string[] = project.attributes.project_highlights.split(',');  
   const projectTechnologies = project.attributes.technologies.data;
   const projectThumbnail = getStrapiMedia(project.attributes.project_thumbnail);
+  
   return (
     <div className='container position-relative'>
       <div className='d-flex flex-column'>
@@ -74,7 +76,7 @@ const ProjectPage: NextPage<ProjectProps> = ({ project }) => {
           AOSRepeat={true}
         >
           <div className='tablet mx-auto col-12 col-lg-10 position-relative'>
-            <div className='tablet__camera z-index-99'></div>
+            {/* <div className='tablet__camera z-index-99'></div> */}
             <Image
               priority
               objectFit='cover'
@@ -83,22 +85,53 @@ const ProjectPage: NextPage<ProjectProps> = ({ project }) => {
             />
           </div>
           <div className='project__description-container col-12 col-lg-8 text-white my-4 mx-auto' dangerouslySetInnerHTML={{__html: projectDescription}}></div>
-          <div className='my-4 d-flex flex-wrap justify-content-center align-items-center col-12 col-lg-8 mx-auto'>
+          <div className='project__gallery-container col-12 col-lg-8 mx-auto'>
             {
-              projectHightlights.map((highlight, i:number) => <AOSComp key={i} AOSAnimation="zoom-out-right" AOSDuration='1200' AOSDelay={String(150 * i)} AOSRepeat={false} className="portfolios__tag no-hover fs-sm">{highlight}</AOSComp>)
+              projectGaleries.map((image, i) => {
+                return (
+                  <div className='position-relative project__gallery-container__image w-100 h-100' key={i}>
+                    <Image
+                      objectFit='cover'
+                      layout='fill'
+                      src={image}
+                    />
+                  </div>
+                )
+              })
             }
           </div>
-          <div className='col-12 col-lg-10 mx-auto d-flex justify-content-around'>
+          <div className='my-4 d-flex flex-wrap justify-content-center align-items-center col-12 col-lg-8 mx-auto'>
             {
-              projectTechnologies.map(tech => {
+              projectHightlights.map((highlight, i:number) => {
+                return (
+                  <AOSComp 
+                    key={i} 
+                    AOSAnimation="zoom-out-right" 
+                    AOSOffset='250'
+                    AOSDuration='1200' 
+                    AOSDelay={String(150 * i)} 
+                    AOSRepeat={false} 
+                    className="portfolios__tag no-hover fs-sm"
+                    >
+                      <span>
+                        {highlight}
+                      </span>
+                  </AOSComp>
+                )
+              })
+            }
+          </div>
+          <div className='col-12 col-lg-10 mx-auto flex-column flex-md-row d-flex justify-content-around'>
+            {
+              projectTechnologies.map((tech, i:number) => {
                 return (
                   <AOSComp 
                     AOSAnimation='zoom-in-up'
                     AOSDuration='800'
                     AOSOffset='200'
                     AOSRepeat={true}
-                    AOSDelay={String(150 * tech.id)}
-                    className='d-flex flex-column align-items-center' key={tech.id}
+                    AOSDelay={String(150 * i)}
+                    className='d-flex flex-column my-2 my-md-0 align-items-center' key={tech.id}
                   >
                     <p className='fs-sm opacity-50 mb-2'>{tech.attributes.TechName}</p>
                     <Image
