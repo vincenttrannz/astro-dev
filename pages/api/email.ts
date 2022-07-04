@@ -5,7 +5,6 @@ type EmailData = {
 }
 
 const sgMail = require('@sendgrid/mail');
-// API KEY = SG.1LsJpTPXQmefFKvRT1RksQ.9UDc-dKwpQUVpZMTGe3sRCisidEacAAUPULLUpXKQwo
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 export default function handler(
