@@ -39,6 +39,8 @@ footer {
       clip-path: polygon(0% 100%, 12% 82%, 24% 89%, 36% 79%, 49% 86%, 80% 75%, 100% 100%);
     }
     .mountain-highlight {
+      transition: transform;
+      transition-timing-function: ease;
       position: absolute;
       width: 0; 
       height: 0;
@@ -48,6 +50,8 @@ footer {
       border-right: 32vw solid transparent;
       border-bottom: 14vw solid #111111;
       &-border {
+        transition: transform;
+        transition-timing-function: ease;
         position: absolute;
         width: 0; 
         height: 0;
