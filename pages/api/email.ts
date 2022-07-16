@@ -12,7 +12,7 @@ export default function handler(
   res: NextApiResponse
 ) {
   const body = JSON.parse(req.body);
-  console.log('Message return:', body);
+  // console.log('Message return:', body);
   // const message = {
   //   nickname: 'Astro Web Dev',
   //   to: {
