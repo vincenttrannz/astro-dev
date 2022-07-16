@@ -1,14 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
+import cn from 'classnames'
 
 type Props = {}
 
 const ContactForm = (props: Props) => {
-  const [contact, setContact] = useState({
-    send: false,
-    text: '',
-    email: '',
-    name: ''
-  })
+  const [submitted, setSubmitted] = useState(false);
+  const contactForm = useRef<HTMLFormElement>(null)
 
   async function handleOnSubmit(e:any) {
     e.preventDefault();
@@ -17,16 +14,37 @@ const ContactForm = (props: Props) => {
       if ( !field.name ) return;
       formData[field.name] = field.value;
     });
-  
+    setSubmitted(true)
     await fetch('/api/email', {
       method: 'POST',
       body: JSON.stringify(formData)
-    });
+    })
   }
 
+  const formClassNames = cn(
+    'col-md-12',
+    {
+      'animate__animated animate__fadeOut': submitted
+    }
+  );
+
+  const thanksMessageClassNames = cn(
+    {
+      'animate__animated animate__fadeIn animate__delay-2s d-flex justify-content-center': submitted
+    }
+  )
+
+  useEffect(() => {
+    if(submitted) {
+      setTimeout(() => contactForm.current?.classList.add('d-none'), 2000)
+    }
+  }, [submitted])
+
   return (
-    <form
-      className="col-md-12"
+    <>
+      <form
+      ref={contactForm}
+      className={formClassNames}
       method='POST'
       onSubmit={handleOnSubmit}
       >
@@ -70,6 +88,11 @@ const ContactForm = (props: Props) => {
           />
         </div>
       </form>
+      {
+        submitted &&
+        <h4 className={thanksMessageClassNames}>Thanks for your message</h4>
+      }
+    </>
   )
 }
 

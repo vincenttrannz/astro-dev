@@ -1,9 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-type EmailData = {
-  data: any
-}
-
 const sgMail = require('@sendgrid/mail');
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
@@ -34,7 +30,6 @@ export default function handler(
       ${body.message}
     `,
   };
-
   // Send method
   sgMail.send(message).then(() => {
     res.status(200).json({ status: 'OK' })
