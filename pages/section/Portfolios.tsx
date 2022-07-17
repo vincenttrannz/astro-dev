@@ -4,6 +4,7 @@ import { OrbitControls } from "@react-three/drei"
 import Image from 'next/image'
 import AOSComp from '../components/partials/AOSComp'
 import ProjectCard from '../components/ProjectCard'
+import ProjectCard3D from '../components/ProjectCard3D'
 import Earth from '../components/Earth';
 // Import types
 import { Project, Location, Technology } from '../../types/type'
@@ -64,9 +65,10 @@ const Portfolios = ({ locations, projects, technologies }:PorfolioProps) => {
               <p>Check pin: { selectedPin }</p>
               <div className='portfolios__showcase__container mt-5'>
                 {
-                  projects.map(project => {
+                  projects.map((project, index:number) => {
                     return (
-                      <ProjectCard key={project.id} projectData={project}/>
+                      // <ProjectCard key={project.id} projectData={project}/>
+                      <ProjectCard3D rotateOpts={index}/>
                     )
                   })
                 }

@@ -23,7 +23,7 @@ function AstroApp({ Component, pageProps }: AppProps) {
     window.scrollTo({
       top: 0,
       left: 0,
-      behavior: "auto" || "instant",
+      behavior: "instant",
     });
   })
   useEffect(() => {

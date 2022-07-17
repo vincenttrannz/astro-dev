@@ -1,9 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import cn from 'classnames'
 
-type Props = {}
-
-const ContactForm = (props: Props) => {
+const ContactForm = () => {
   const [submitted, setSubmitted] = useState(false);
   const contactForm = useRef<HTMLFormElement>(null)
 
