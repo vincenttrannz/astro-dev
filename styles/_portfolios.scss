@@ -21,10 +21,17 @@
   &__showcase {
     &__container {
       display: grid;
-      grid-template-columns: repeat(3, 400px);
+      grid-template-columns: repeat(3, 1fr);
       justify-content: center;
-      gap: max(2rem, min(5vw, 6rem));
+      gap: max(2rem, min(5vw, 6rem)) 0;
       width: 100%;
+    }
+    &__3d-card {
+      height: max(400px, min(50vw, 650px)) !important;
+      filter: saturate(1.25) contrast(1.25) drop-shadow(0px 0px 4px $white);
+      canvas {
+        width: 100% !important;
+      }
     }
     &__card {
       display: grid;
@@ -66,8 +73,17 @@
   .portfolios {
     &__showcase {
       &__container {
-        grid-template-columns: repeat(2, 400px);
-        justify-content: center;
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $mobile-screen-size) {
+  .portfolios {
+    &__showcase {
+      &__container {
+        grid-template-columns: 1fr;
       }
     }
   }

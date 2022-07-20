@@ -2,10 +2,12 @@ import React, { useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls } from "@react-three/drei"
 import Image from 'next/image'
+import Link from 'next/link'
 import AOSComp from '../components/partials/AOSComp'
 import ProjectCard from '../components/ProjectCard'
 import ProjectCard3D from '../components/ProjectCard3D'
 import Earth from '../components/Earth';
+import { getStrapiMedia } from "../../lib/fetchData";
 // Import types
 import { Project, Location, Technology } from '../../types/type'
 
@@ -53,7 +55,7 @@ const Portfolios = ({ locations, projects, technologies }:PorfolioProps) => {
             {/* Filter container */}
             <div className='portfolios__filter d-flex flex-column justify-content-center align-items-center mt-5'>
               <h3 className='font--gothic text-white'>FILTER</h3>
-              <div className='d-flex mt-2'>
+              <div className='d-flex flex-wrap mt-2'>
                 { 
                   filterTags.map((tag:string) => <span key={tag} className="portfolios__tag fs-sm">{tag}</span>)
                 }
@@ -67,8 +69,11 @@ const Portfolios = ({ locations, projects, technologies }:PorfolioProps) => {
                 {
                   projects.map((project, index:number) => {
                     return (
-                      // <ProjectCard key={project.id} projectData={project}/>
-                      <ProjectCard3D rotateOpts={index}/>
+                      <Link key={project.id} href={`/project/${project.attributes.slug}`}>
+                        <a>
+                          <ProjectCard3D cardImage={getStrapiMedia(project.attributes.project_thumbnail)} rotateOpts={index}/>
+                        </a>
+                      </Link>
                     )
                   })
                 }

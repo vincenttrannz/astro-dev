@@ -6,19 +6,19 @@ type Props = {}
 const Footer = (props: Props) => {
   const theMountain = useRef<HTMLDivElement>(null!);
   const theMountainBorder = useRef<HTMLDivElement>(null!);
-  useEffect(() => {
-    const screenWidth = window.innerWidth;
-    const maxMove = 20;
+  // useEffect(() => {
+  //   const screenWidth = window.innerWidth;
+  //   const maxMove = 20;
 
-    window.onmousemove = (event) => {
-      const mouseX = event.pageX/screenWidth;	
-      const xMove = ((mouseX*maxMove)-maxMove);
-      theMountain.current.style.transform = `translateX(${xMove}px)`
-      theMountainBorder.current.style.transform = `translateX(${xMove}px)`
-      // theMountain.current.style.transform = 'rotateY('+yDegrees+'deg) rotateX('+xDegrees+'deg)';
-      // theMountainBorder.current.style.transform = 'rotateY('+yDegrees+'deg) rotateX('+xDegrees+'deg)';
-    }
-  }, [])
+  //   window.onmousemove = (event) => {
+  //     const mouseX = event.pageX/screenWidth;	
+  //     const xMove = ((mouseX*maxMove)-maxMove);
+  //     theMountain.current.style.transform = `translateX(${xMove}px)`
+  //     theMountainBorder.current.style.transform = `translateX(${xMove}px)`
+  //     // theMountain.current.style.transform = 'rotateY('+yDegrees+'deg) rotateX('+xDegrees+'deg)';
+  //     // theMountainBorder.current.style.transform = 'rotateY('+yDegrees+'deg) rotateX('+xDegrees+'deg)';
+  //   }
+  // }, [])
 
   return (
     <footer className='position-relative'>
